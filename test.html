@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Gallery - Polaroid Style</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        /* Polaroid Card Style */
+        .polaroid-card {
+            background: white;
+            padding: 1rem 1rem 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            position: relative;
+            transform-origin: center;
+            animation: floatAnimation 5s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Different animation delays for cards */
+        .polaroid-card:nth-child(2n) {
+            animation-delay: 0.5s;
+        }
+        .polaroid-card:nth-child(3n) {
+            animation-delay: 1s;
+        }
+
+        .polaroid-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .image-wrapper {
+            position: relative;
+            padding-bottom: 100%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            background: #f8f8f8;
+        }
+
+        .gallery-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .polaroid-card:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #333;
+            margin-top: 0.5rem;
+            font-family: 'Segoe Script', cursive;
+        }
+
+        /* Pin decoration */
+        .pin {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4757;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Wind shake animation */
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: rotate(-2deg) translateY(0);
+            }
+            25% {
+                transform: rotate(0deg) translateY(-5px);
+            }
+            50% {
+                transform: rotate(2deg) translateY(0);
+            }
+            75% {
+                transform: rotate(0deg) translateY(-3px);
+            }
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 15px solid white;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .image-caption {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                gap: 0.8rem;
+            }
+
+            .polaroid-card {
+                padding: 0.8rem 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-grid">
+            <!-- Gallery items will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <span class="close-lightbox">&times;</span>
+            <img src="" alt="" class="lightbox-image">
+        </div>
+    </div>
+
+    <script>
+        const galleryData = [
+            {
+                src: "coffee-images/wallpaper.png",
+                alt: "Summer Evening Sky",
+                caption: "8 PM, Summer"
+            },
+            {
+                src: "coffee-images/espreso.webp",
+                alt: "Winter Afternoon",
+                caption: "3 PM, Winter"
+            },
+            {
+                src: "coffee-images/wallpaper.png",
+                alt: "Summer Storm",
+                caption: "10 AM, Summer Storm"
+            },
+            {
+                src: "coffee-images/wallpaper.png",
+                alt: "Autumn Sky",
+                caption: "5 PM, Autumn"
+            },
+            {
+                src: "coffee-images/wallpaper.png",
+                alt: "Spring Evening",
+                caption: "7 PM, Spring"
+            },
+            {
+                src: "coffee-images/wallpaper.png",
+                alt: "Rainbow Sky",
+                caption: "4 PM, Rainbow"
+            }
+        ];
+
+        function createGallery() {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            
+            galleryData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'polaroid-card';
+                card.innerHTML = `
+                    <div class="pin"></div>
+                    <div class="image-wrapper">
+                        <img src="${item.src}" alt="${item.alt}" class="gallery-image">
+                    </div>
+                    <div class="image-caption">${item.caption}</div>
+                `;
+                galleryGrid.appendChild(card);
+            });
+        }
+
+        function initLightbox() {
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox-image');
+            const closeBtn = lightbox.querySelector('.close-lightbox');
+
+            document.querySelectorAll('.polaroid-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('.gallery-image');
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            createGallery();
+            initLightbox();
+        });
+    </script>
+</body>
+</html>

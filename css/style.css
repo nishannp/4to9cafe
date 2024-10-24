@@ -219,6 +219,8 @@ button {
     height: auto;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    z-index: 1000;
+    position: relative;
 }
 
 .header_bg {
@@ -265,11 +267,21 @@ button {
 .navbar-brand {
     margin: 0px;
     float: right;
+    width: 80px;
+    height: 80px;
 }
 
 .navbar {
     padding: 0px 0px 20px 0px;
 }
+
+.nav-item.active .nav-link {
+    color: #fff;  /* White text color */
+    background-color: #007bff;  /* Blue background color to highlight */
+    font-weight: bold;  /* Bold font for active link */
+    padding: 10px 15px;  /* Add some padding for better visibility */
+    border-radius: 5px;  /* Rounded corners */
+ }
 
 .user_icon {
     padding-right: 15px;
@@ -292,6 +304,7 @@ button {
     text-transform: uppercase;
     padding: 0px 0px 0px 50px;
 }
+
 
 .login_bt li a:hover {
     color: #f01c1c;

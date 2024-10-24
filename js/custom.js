@@ -1,6 +1,23 @@
 /*---------------------------------------------------------------------
     File Name: custom.js
 ---------------------------------------------------------------------*/
+// Get current page's URL
+const currentPage = window.location.pathname.split("/").pop(); // Only get the page name (e.g., index.html)
+
+// Get all nav-link elements
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+// Loop through each link and check if the href matches the current page URL
+navLinks.forEach(link => {
+   // Compare the href value with the current page
+   if (link.getAttribute('href') === currentPage) {
+      // Add 'active' class to the matching link's parent li element
+      link.parentElement.classList.add('active');
+   } else {
+      // Remove 'active' class from any non-matching links
+      link.parentElement.classList.remove('active');
+   }
+});
 
 $(function () {
 	

@@ -27,6 +27,10 @@
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
    </head>
    <body>
       <div class="header_section header_bg">
@@ -38,7 +42,7 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
-                     <li class="nav-item active">
+                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                      </li>
                      <li class="nav-item">
@@ -48,48 +52,605 @@
                         <a class="nav-link" href="coffees.html">Coffees</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
+                        <a class="nav-link" href="gallery.html">Gallery</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                        <a class="nav-link" href="blog.html">Events</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="services.html">Services</a>
                      </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                     <div class="login_bt">
-                        <ul>
-                           <li><a href="#"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
-                           <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </form>
+                  
                </div>
             </nav>
          </div>
       </div>
       <!-- header section end -->
       <!-- about section start -->
-      <div class="about_section layout_padding">
-         <div class="container">
-            <div class="about_section_2">
-               <div class="row">
-                  <div class="col-md-6"> 
-                     <div class="about_taital_box">
-                        <h1 class="about_taital">About Our shop</h1>
-                        <h1 class="about_taital_1">Coffee distribution '</h1>
-                        <p class=" about_text">has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorhas a more-or-less normal distribution of letters, as oppos</p>
-                        <div class="readmore_btn"><a href="#">Read More</a></div>
-                     </div>
-                  </div>
-                  <div class="col-md-6"> 
-                     <div class="image_iman"><img src="images/about-img.png" class="about_img"></div>
-                  </div>
-               </div>
+      
+     
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+          <style>
+              :root {
+                  --primary: #2c1810;
+                  --secondary: #d4a574;
+                  --accent: #8b4513;
+                  --background: #faf6f1;
+                  --text: #2a2a2a;
+              }
+      
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
+      
+              body {
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  line-height: 1.6;
+                  background-color: var(--background);
+                  color: var(--text);
+              }
+      
+              .modern-hero {
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background-color: #f8f5f2;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .modern-hero__text {
+            padding: 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modern-hero__image {
+            position: relative;
+            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .modern-hero__small-heading {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #967259;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .modern-hero__small-heading::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 40px;
+            height: 2px;
+            background-color: #967259;
+            transform: translateY(-50%);
+        }
+
+        .modern-hero__title {
+            font-family: 'Marcellus', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            color: #2d2926;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .modern-hero__description {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #5c5c5c;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .modern-hero__cta-container {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .modern-hero__cta-primary {
+            padding: 1rem 2.5rem;
+            background-color: #2d2926;
+            color: white;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-hero__cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.5s ease;
+        }
+
+        .modern-hero__cta-primary:hover::before {
+            transform: translateX(0) skewX(-15deg);
+        }
+
+        .modern-hero__cta-secondary {
+            padding: 1rem 2.5rem;
+            color: #2d2926;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            border: 2px solid #2d2926;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .modern-hero__cta-secondary:hover {
+            background-color: #2d2926;
+            color: white;
+        }
+
+        .modern-hero__decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 40px solid rgba(150, 114, 89, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+            z-index: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .modern-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .modern-hero__text {
+                padding: 4rem 2rem;
+                order: 2;
+            }
+
+            .modern-hero__image {
+                min-height: 50vh;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+                order: 1;
+            }
+
+            .modern-hero__title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modern-hero__cta-container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .modern-hero__cta-primary,
+            .modern-hero__cta-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+              /* Story Section */
+              .story-section {
+                  padding: 6rem 2rem;
+                  background: white;
+              }
+      
+              .container {
+                  max-width: 1200px;
+                  margin: 0 auto;
+              }
+      
+              .story-grid {
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 2rem;
+                  margin-top: 4rem;
+              }
+      
+              .story-card {
+                  background: var(--background);
+                  padding: 2rem;
+                  border-radius: 20px;
+                  transition: transform 0.3s ease;
+              }
+      
+              .story-card:hover {
+                  transform: translateY(-10px);
+              }
+      
+              .story-title {
+                  margin-bottom: 3rem;
+                  text-align: center;
+              }
+      
+              .story-title h2 {
+                  font-size: 2.5rem;
+                  color: var(--primary);
+                  margin-bottom: 1rem;
+              }
+      
+              .story-title p {
+                  color: var(--accent);
+                  font-size: 1.2rem;
+              }
+      
+              /* Coffee Journey Section */
+              .journey-section {
+                  padding: 6rem 2rem;
+                  background: var(--primary);
+                  color: white;
+              }
+      
+              .journey-grid {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 4rem;
+                  align-items: center;
+              }
+      
+              .journey-content h2 {
+                  font-size: 2.5rem;
+                  margin-bottom: 2rem;
+                  color: var(--secondary);
+              }
+      
+              .journey-image {
+                  position: relative;
+                  height: 400px;
+                  border-radius: 20px;
+                  overflow: hidden;
+              }
+      
+              .journey-image img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+              }
+      
+              /* Values Section */
+              .values-section {
+                  padding: 6rem 2rem;
+                  background: var(--background);
+              }
+      
+              .values-grid {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                  gap: 2rem;
+              }
+      
+              .value-card {
+                  background: white;
+                  padding: 2rem;
+                  border-radius: 20px;
+                  text-align: center;
+                  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+              }
+      
+              .value-icon {
+                  font-size: 2.5rem;
+                  color: var(--secondary);
+                  margin-bottom: 1rem;
+              }
+      
+              /* Team Section */
+              .team-section {
+                  padding: 6rem 2rem;
+                  background: white;
+              }
+      
+              .team-grid {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                  gap: 3rem;
+                  margin-top: 4rem;
+              }
+      
+              .team-member {
+                  position: relative;
+                  border-radius: 20px;
+                  overflow: hidden;
+                  aspect-ratio: 1;
+              }
+      
+              .member-content {
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  padding: 2rem;
+                  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+                  color: white;
+              }
+      
+              /* Gallery Section */
+              .gallery-section {
+                  padding: 6rem 2rem;
+                  background: var(--background);
+              }
+      
+              .gallery-grid {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                  gap: 1rem;
+              }
+      
+              .gallery-item {
+                  position: relative;
+                  border-radius: 15px;
+                  overflow: hidden;
+                  aspect-ratio: 1;
+              }
+      
+              .gallery-item img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 0.3s ease;
+              }
+      
+              .gallery-item:hover img {
+                  transform: scale(1.1);
+              }
+      
+              /* Animations */
+              @keyframes slowZoom {
+                  0% { transform: scale(1); }
+                  100% { transform: scale(1.1); }
+              }
+      
+              .fade-in {
+                  opacity: 0;
+                  transform: translateY(20px);
+                  transition: opacity 0.6s ease, transform 0.6s ease;
+              }
+      
+              .fade-in.visible {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+      
+              /* Mobile Responsiveness */
+              @media (max-width: 768px) {
+                
+      
+                  .story-grid,
+                  .journey-grid {
+                      grid-template-columns: 1fr;
+                      gap: 2rem;
+                  }
+      
+                  .journey-image {
+                      height: 300px;
+                  }
+      
+                  .section {
+                      padding: 4rem 1.5rem;
+                  }
+              }
+      
+              /* Utility Classes */
+              .mb-4 {
+                  margin-bottom: 2rem;
+              }
+      
+              .text-center {
+                  text-align: center;
+              }
+          </style>
+     
+     <section class="modern-hero">
+        <div class="modern-hero__text">
+            <div class="modern-hero__decoration"></div>
+            <span class="modern-hero__small-heading">Welcome to</span>
+            <h1 class="modern-hero__title">NINE 2 FOUR CAFE HOUSE</h1>
+            <p class="modern-hero__description">
+                Discover a perfect blend of contemporary atmosphere and artisanal coffee craftsmanship. Every cup tells a story of passion and precision.
+            </p>
+            <div class="modern-hero__cta-container">
+                <a href="coffees.html" class="modern-hero__cta-primary">View Menu</a>
+                <a href="#our-story" class="modern-hero__cta-secondary">Our Story</a>
             </div>
-         </div>
-      </div>
+        </div>
+        <div class="modern-hero__image"></div>
+    </section>
+
+    <script>
+        // Add smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelector('.cafe-hero__scroll').addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+      
+          <section id="our-story" class="story-section">
+              <div class="container">
+                  <div class="story-title">
+                      <h2>Our Journey</h2>
+                      <p>A legacy of flavor and community</p>
+                  </div>
+                  <div class="story-grid">
+                      <div class="story-card fade-in">
+                          <h3>The Beginning</h3>
+                          <p>Started as a small corner shop with big dreams and a passion for quality coffee.</p>
+                      </div>
+                      <div class="story-card fade-in">
+                          <h3>Growth</h3>
+                          <p>Expanded our offerings while maintaining the warmth of a local café.</p>
+                      </div>
+                      <div class="story-card fade-in">
+                          <h3>Today</h3>
+                          <p>A beloved community hub, serving the finest coffee and creating lasting memories.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <section class="journey-section">
+              <div class="container">
+                  <div class="journey-grid">
+                      <div class="journey-content fade-in">
+                          <h2>The Art of Coffee</h2>
+                          <p>Every bean we select, every roast we perfect, and every cup we serve is a testament to our dedication to the craft of coffee-making. Our master roasters bring decades of experience to create the perfect blend for your daily ritual.</p>
+                      </div>
+                      <div class="journey-image fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Coffee Making Process">
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <section class="values-section">
+              <div class="container">
+                  <div class="story-title">
+                      <h2>Our Values</h2>
+                      <p>What drives us forward</p>
+                  </div>
+                  <div class="values-grid">
+                      <div class="value-card fade-in">
+                          <div class="value-icon">
+                              <i class="fas fa-leaf"></i>
+                          </div>
+                          <h3>Sustainability</h3>
+                          <p>Committed to eco-friendly practices and responsible sourcing.</p>
+                      </div>
+                      <div class="value-card fade-in">
+                          <div class="value-icon">
+                              <i class="fas fa-heart"></i>
+                          </div>
+                          <h3>Community</h3>
+                          <p>Creating connections and fostering relationships.</p>
+                      </div>
+                      <div class="value-card fade-in">
+                          <div class="value-icon">
+                              <i class="fas fa-star"></i>
+                          </div>
+                          <h3>Excellence</h3>
+                          <p>Pursuing perfection in every cup we serve.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <section class="team-section">
+              <div class="container">
+                  <div class="story-title">
+                      <h2>Meet Our Team</h2>
+                      <p>The faces behind your favorite coffee</p>
+                  </div>
+                  <div class="team-grid">
+                      <div class="team-member fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Team Member">
+                          <div class="member-content">
+                              <h3>Maria Rodriguez</h3>
+                              <p>Master Roaster</p>
+                          </div>
+                      </div>
+                      <div class="team-member fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Team Member">
+                          <div class="member-content">
+                              <h3>James Chen</h3>
+                              <p>Head Barista</p>
+                          </div>
+                      </div>
+                      <div class="team-member fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Team Member">
+                          <div class="member-content">
+                              <h3>Sarah Thompson</h3>
+                              <p>Pastry Chef</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <section class="gallery-section">
+              <div class="container">
+                  <div class="story-title">
+                      <h2>Coffee Moments</h2>
+                      <p>Snapshots of our daily passion</p>
+                  </div>
+                  <div class="gallery-grid">
+                      <div class="gallery-item fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Café Moment">
+                      </div>
+                      <div class="gallery-item fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Café Moment">
+                      </div>
+                      <div class="gallery-item fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Café Moment">
+                      </div>
+                      <div class="gallery-item fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Café Moment">
+                      </div>
+                      <div class="gallery-item fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Café Moment">
+                      </div>
+                      <div class="gallery-item fade-in">
+                          <img src="coffee-images/wallpaper.png" alt="Café Moment">
+                      </div>
+                  </div>
+              </div>
+          </section>
+      
+          <script>
+              // Intersection Observer for fade-in animations
+              const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          entry.target.classList.add('visible');
+                      }
+                  });
+              }, {
+                  threshold: 0.1
+              });
+      
+              document.querySelectorAll('.fade-in').forEach(element => {
+                  observer.observe(element);
+              });
+          </script>
+      
       <!-- about section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding margin_top90">
