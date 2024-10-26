@@ -26,7 +26,7 @@
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
       <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
@@ -68,35 +68,351 @@
       </div>
       <!-- header section end -->
       <!-- contact section start -->
-      <div class="contact_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <h1 class="contact_taital">Get In Touch</h1>
-               </div>
-            </div>
+      <style>
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         }
+ 
+         body {
+             background: #f5f7fa;
+         }
+ 
+         .services-container {
+             max-width: 1400px;  /* Increased max-width to better accommodate 7 cards */
+             margin: 0 auto;
+             padding: 60px 20px;
+         }
+ 
+         .services-header {
+             text-align: center;
+             margin-bottom: 70px;
+             position: relative;
+         }
+ 
+         .services-header::after {
+             content: '';
+             position: absolute;
+             bottom: -20px;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 80px;
+             height: 4px;
+             background: #E67E22;
+             border-radius: 2px;
+         }
+ 
+         .services-header h1 {
+             color: #2C3E50;
+             font-size: 2.8rem;
+             margin-bottom: 20px;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+         }
+ 
+         .services-header p {
+             color: #7F8C8D;
+             font-size: 1.2rem;
+             max-width: 700px;
+             margin: 0 auto;
+             line-height: 1.8;
+         }
+ 
+         .services-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 40px;
+             margin-bottom: 70px;
+             justify-items: center;
+         }
+ 
+         .service-card {
+             background: #fff;
+             border-radius: 20px;
+             padding: 40px;
+             text-align: center;
+             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+             transition: all 0.3s ease;
+             opacity: 0;
+             transform: translateY(20px);
+             animation: fadeIn 0.6s ease forwards;
+             width: 100%;
+             max-width: 350px;
+         }
+ 
+         @keyframes fadeIn {
+             to {
+                 opacity: 1;
+                 transform: translateY(0);
+             }
+         }
+ 
+         .service-card:hover {
+             transform: translateY(-15px);
+             box-shadow: 0 15px 35px rgba(230,126,34,0.2);
+         }
+ 
+         .service-icon {
+             font-size: 48px;
+             margin-bottom: 25px;
+             color: #E67E22;
+             background: #FEF5E7;
+             width: 100px;
+             height: 100px;
+             line-height: 100px;
+             border-radius: 50%;
+             margin: 0 auto 25px;
+             transition: all 0.3s ease;
+             position: relative;
+             overflow: hidden;
+         }
+ 
+         .service-card:hover .service-icon {
+             background: #E67E22;
+             color: #fff;
+             transform: rotate(360deg);
+         }
+ 
+         .service-icon::after {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+             opacity: 0;
+             transition: opacity 0.3s ease;
+         }
+ 
+         .service-card:hover .service-icon::after {
+             opacity: 1;
+         }
+ 
+         .service-card h3 {
+             color: #2C3E50;
+             margin-bottom: 20px;
+             font-size: 1.6rem;
+             font-weight: 600;
+         }
+ 
+         .service-card p {
+             color: #7F8C8D;
+             line-height: 1.8;
+             font-size: 1.1rem;
+         }
+ 
+         .payment-section {
+             background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+             padding: 60px 40px;
+             border-radius: 25px;
+             text-align: center;
+             margin-top: 70px;
+             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+         }
+ 
+         .payment-section h2 {
+             color: #2C3E50;
+             margin-bottom: 40px;
+             font-size: 2.2rem;
+             position: relative;
+             display: inline-block;
+         }
+ 
+         .payment-section h2::after {
+             content: '';
+             position: absolute;
+             bottom: -15px;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 60px;
+             height: 3px;
+             background: #E67E22;
+             border-radius: 2px;
+         }
+ 
+         .payment-icons {
+             display: flex;
+             justify-content: center;
+             gap: 40px;
+             flex-wrap: wrap;
+         }
+ 
+         .payment-icon {
+             background: #fff;
+             padding: 20px 40px;
+             border-radius: 15px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+             transition: all 0.3s ease;
+             cursor: pointer;
+         }
+ 
+         .payment-icon:hover {
+             transform: translateY(-5px) scale(1.05);
+             box-shadow: 0 8px 20px rgba(230,126,34,0.15);
+         }
+ 
+         .highlight-card {
+             position: relative;
+             overflow: hidden;
+         }
+ 
+         .highlight-card::before {
+             content: 'New';
+             position: absolute;
+             top: 20px;
+             right: -30px;
+             background: #E67E22;
+             color: white;
+             padding: 5px 40px;
+             transform: rotate(45deg);
+             font-size: 0.8rem;
+             font-weight: bold;
+             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+         }
+ 
+         @media (max-width: 768px) {
+             .services-header h1 {
+                 font-size: 2.2rem;
+             }
+ 
+             .services-header p {
+                 font-size: 1.1rem;
+                 padding: 0 20px;
+             }
+ 
+             .service-card {
+                 padding: 30px;
+             }
+ 
+             .payment-icons {
+                 gap: 20px;
+             }
+ 
+             .payment-icon {
+                 padding: 15px 30px;
+             }
+         }
+ 
+         /* Custom animation for cards */
+         .service-card:nth-child(odd) {
+             animation-delay: 0.2s;
+         }
+ 
+         .service-card:nth-child(even) {
+             animation-delay: 0.4s;
+         }
+     </style>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+     <div class="services-container">
+         <div class="services-header">
+             <h1>Our Services</h1>
+             <p>Experience the perfect blend of entertainment, relaxation, and great coffee at 4 to 9 Cafe. We've created a space where memories are made and moments are cherished.</p>
          </div>
-         <div class="container-fluid">
-            <div class="contact_section_2">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="mail_section_1">
-                        <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
-                        <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">
-                        <input type="text" class="mail_text" placeholder="Your Phone" name="Your Phone">
-                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                        <div class="send_bt"><a href="#">Send</a></div>
-                     </div>
-                  </div>
-                  <div class="map_main">
-                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="250" height="500" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                     </div>
-                  </div>
-               </div>
-            </div>
+ 
+         <div class="services-grid">
+             <div class="service-card">
+                 <div class="service-icon">
+                     <i class="fas fa-motorcycle"></i>
+                 </div>
+                 <h3>Motor Rides</h3>
+                 <p>Connect with fellow riders and embark on thrilling adventures. Join our weekend rides and motorcycling events.</p>
+             </div>
+ 
+             <div class="service-card">
+                 <div class="service-icon">
+                     <i class="fas fa-coffee"></i>
+                 </div>
+                 <h3>Perfect Coffee Date</h3>
+                 <p>Enjoy our carefully crafted coffee in a romantic atmosphere perfect for those special moments together.</p>
+             </div>
+ 
+             <div class="service-card">
+                 <div class="service-icon">
+                     <i class="fas fa-chess"></i>
+                 </div>
+                 <h3>Chess</h3>
+                 <p>Exercise your mind with strategic gameplay. Join our weekly chess tournaments and meet fellow enthusiasts.</p>
+             </div>
+ 
+             <div class="service-card">
+                 <div class="service-icon">
+                     <i class="fas fa-gamepad"></i>
+                 </div>
+                 <h3>Carrom Board</h3>
+                 <p>Challenge friends to exciting carrom matches in our dedicated gaming corner. Perfect for group entertainment.</p>
+             </div>
+ 
+             <div class="service-card">
+                 <div class="service-icon">
+                     <i class="fas fa-dice"></i>
+                 </div>
+                 <h3>Playing Cards</h3>
+                 <p>Gather around for card games and create lasting memories with friends and family in our cozy environment.</p>
+             </div>
+ 
+             <div class="service-card">
+                 <div class="service-icon">
+                     <i class="fas fa-wifi"></i>
+                 </div>
+                 <h3>Free WiFi</h3>
+                 <p>Stay connected with high-speed internet while enjoying our premium coffee and relaxing atmosphere.</p>
+             </div>
+ 
+             <div class="service-card highlight-card">
+                 <div class="service-icon">
+                     <i class="fas fa-tshirt"></i>
+                 </div>
+                 <h3>Merchandise</h3>
+                 <p>Take a piece of 4 to 9 Cafe home with our exclusive merchandise collection featuring t-shirts, mugs, and more.</p>
+             </div>
          </div>
-      </div>
+ 
+         <div class="payment-section">
+             <h2>Convenient Payment Options</h2>
+             <div class="payment-icons">
+                 <div class="payment-icon">
+                     <img src="cafeimg/payment.png" alt="eSewa" />
+                 </div>
+               
+             </div>
+         </div>
+     </div>
+ 
+     <script>
+         // Enhanced scroll animation
+         const observerOptions = {
+             threshold: 0.2,
+             rootMargin: '0px'
+         };
+ 
+         const observer = new IntersectionObserver((entries) => {
+             entries.forEach(entry => {
+                 if (entry.isIntersecting) {
+                     entry.target.style.opacity = '1';
+                     entry.target.style.transform = 'translateY(0)';
+                 }
+             });
+         }, observerOptions);
+ 
+         document.querySelectorAll('.service-card, .payment-icon').forEach(element => {
+             observer.observe(element);
+         });
+ 
+         // Smooth hover effect for service icons
+         document.querySelectorAll('.service-card').forEach(card => {
+             card.addEventListener('mouseenter', function() {
+                 this.querySelector('.service-icon').style.transform = 'rotate(360deg)';
+             });
+             
+             card.addEventListener('mouseleave', function() {
+                 this.querySelector('.service-icon').style.transform = 'rotate(0deg)';
+             });
+         });
+     </script>
       <!-- contact section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding margin_top90">

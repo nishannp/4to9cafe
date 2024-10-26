@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sky Gallery - Polaroid Style</title>
+    <title>4 O 9 Cafe - Premium Coffee Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -12,289 +14,362 @@
         }
 
         body {
-            background: #f0f2f5;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            min-height: 100vh;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('coffee-images/wallpaper.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
             padding: 2rem;
         }
 
-        .gallery-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 1rem;
-        }
-
-        /* Polaroid Card Style */
-        .polaroid-card {
-            background: white;
-            padding: 1rem 1rem 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 4px;
-            position: relative;
-            transform-origin: center;
-            animation: floatAnimation 5s ease-in-out infinite;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Different animation delays for cards */
-        .polaroid-card:nth-child(2n) {
-            animation-delay: 0.5s;
-        }
-        .polaroid-card:nth-child(3n) {
-            animation-delay: 1s;
-        }
-
-        .polaroid-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .image-wrapper {
-            position: relative;
-            padding-bottom: 100%;
-            overflow: hidden;
+        .hero h1 {
+            font-size: 4rem;
             margin-bottom: 1rem;
-            background: #f8f8f8;
+            font-weight: 700;
         }
 
-        .gallery-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .polaroid-card:hover .gallery-image {
-            transform: scale(1.05);
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
         }
 
-        .image-caption {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #333;
-            margin-top: 0.5rem;
-            font-family: 'Segoe Script', cursive;
-        }
-
-        /* Pin decoration */
-        .pin {
-            width: 12px;
-            height: 12px;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff4757;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        /* Wind shake animation */
-        @keyframes floatAnimation {
-            0%, 100% {
-                transform: rotate(-2deg) translateY(0);
-            }
-            25% {
-                transform: rotate(0deg) translateY(-5px);
-            }
-            50% {
-                transform: rotate(2deg) translateY(0);
-            }
-            75% {
-                transform: rotate(0deg) translateY(-3px);
-            }
-        }
-
-        /* Lightbox styles */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            justify-content: center;
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
         }
 
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90vh;
-            position: relative;
-            transform: scale(0.9);
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Menu Preview */
+        .menu-preview {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
 
-        .lightbox.active .lightbox-content {
-            transform: scale(1);
+        .menu-item:hover {
+            transform: translateY(-5px);
         }
 
-        .lightbox-image {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border: 15px solid white;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
 
-        .close-lightbox {
-            position: absolute;
-            top: -40px;
-            right: 0;
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .menu-item p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e67e22;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: #2c3e50;
             color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 1200px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
 
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .image-caption {
-                font-size: 0.9rem;
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 480px) {
-            .gallery-grid {
-                gap: 0.8rem;
-            }
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-            .polaroid-card {
-                padding: 0.8rem 0.8rem 1.5rem;
-            }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="gallery-container">
-        <div class="gallery-grid">
-            <!-- Gallery items will be dynamically added here -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">4 O 9 CAFE</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Experience Premium Coffee & Cuisine</p>
         </div>
-    </div>
+    </section>
 
-    <div class="lightbox">
-        <div class="lightbox-content">
-            <span class="close-lightbox">&times;</span>
-            <img src="" alt="" class="lightbox-image">
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <h2>Our Story</h2>
+                <p>Welcome to 4 O 9 Cafe, where passion meets perfection. Since our establishment, we've been dedicated to serving the finest coffee and creating memorable dining experiences for our valued guests.</p>
+                <p>Our carefully curated menu features both traditional favorites and innovative creations, all made with premium ingredients sourced from local suppliers.</p>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <img src="cafeimg/25.jpg" alt="Cafe Interior">
+            </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Menu Preview -->
+    <section class="menu-preview">
+        <div class="menu-grid">
+            <div class="menu-item" data-aos="fade-up">
+                <img src="coffee-images/espreso.webp" alt="Specialty Coffee">
+                <div class="menu-item-content">
+                    <h3>Signature Latte</h3>
+                    <p>House-blend espresso with velvety steamed milk and artisanal foam</p>
+                    <span class="price">$4.50</span>
+                </div>
+            </div>
+            <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="coffee-images/espreso.webp" alt="Breakfast">
+                <div class="menu-item-content">
+                    <h3>Avocado Toast</h3>
+                    <p>Sourdough bread, smashed avocado, poached eggs, and microgreens</p>
+                    <span class="price">$12.00</span>
+                </div>
+            </div>
+            <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="coffee-images/espreso.webp" alt="Dessert">
+                <div class="menu-item-content">
+                    <h3>Tiramisu</h3>
+                    <p>Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream</p>
+                    <span class="price">$8.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-content">
+            <h2 data-aos="fade-up">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <p>"The best coffee I've ever had! The atmosphere is perfect for both work and relaxation. Highly recommended!"</p>
+                    <span class="testimonial-author">- Sarah Johnson</span>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p>"Amazing brunch spot! The avocado toast is to die for, and the service is always exceptional."</p>
+                    <span class="testimonial-author">- Michael Chen</span>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p>"A hidden gem! The attention to detail in both food and service makes this place stand out."</p>
+                    <span class="testimonial-author">- Emma Rodriguez</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="contact-content">
+            <h2 data-aos="fade-up">Visit Us</h2>
+            <div class="contact-info">
+                <div class="contact-card" data-aos="fade-up">
+                    <h3>Location</h3>
+                    <p>123 Coffee Street<br>Cafe District, City 12345</p>
+                </div>
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 7AM - 8PM<br>Weekend: 8AM - 9PM</p>
+                </div>
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Contact</h3>
+                    <p>Phone: (555) 123-4567<br>Email: hello@409cafe.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 4 O 9 Cafe. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        const galleryData = [
-            {
-                src: "coffee-images/wallpaper.png",
-                alt: "Summer Evening Sky",
-                caption: "8 PM, Summer"
-            },
-            {
-                src: "coffee-images/espreso.webp",
-                alt: "Winter Afternoon",
-                caption: "3 PM, Winter"
-            },
-            {
-                src: "coffee-images/wallpaper.png",
-                alt: "Summer Storm",
-                caption: "10 AM, Summer Storm"
-            },
-            {
-                src: "coffee-images/wallpaper.png",
-                alt: "Autumn Sky",
-                caption: "5 PM, Autumn"
-            },
-            {
-                src: "coffee-images/wallpaper.png",
-                alt: "Spring Evening",
-                caption: "7 PM, Spring"
-            },
-            {
-                src: "coffee-images/wallpaper.png",
-                alt: "Rainbow Sky",
-                caption: "4 PM, Rainbow"
-            }
-        ];
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
 
-        function createGallery() {
-            const galleryGrid = document.querySelector('.gallery-grid');
-            
-            galleryData.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'polaroid-card';
-                card.innerHTML = `
-                    <div class="pin"></div>
-                    <div class="image-wrapper">
-                        <img src="${item.src}" alt="${item.alt}" class="gallery-image">
-                    </div>
-                    <div class="image-caption">${item.caption}</div>
-                `;
-                galleryGrid.appendChild(card);
-            });
-        }
+        // Intersection Observer for fade-up animations
+        const observerOptions = {
+            root: null,
+            threshold: 0.1
+        };
 
-        function initLightbox() {
-            const lightbox = document.querySelector('.lightbox');
-            const lightboxImg = lightbox.querySelector('.lightbox-image');
-            const closeBtn = lightbox.querySelector('.close-lightbox');
-
-            document.querySelectorAll('.polaroid-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const img = card.querySelector('.gallery-image');
-                    lightboxImg.src = img.src;
-                    lightboxImg.alt = img.alt;
-                    lightbox.classList.add('active');
-                });
-            });
-
-            closeBtn.addEventListener('click', () => {
-                lightbox.classList.remove('active');
-            });
-
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    lightbox.classList.remove('active');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
-        }
+        }, observerOptions);
 
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            createGallery();
-            initLightbox();
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
