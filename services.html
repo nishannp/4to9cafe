@@ -449,10 +449,17 @@
       <div class="copyright_section">
          <div class="container">
             <div class="row">
-               <div class="col-sm-12">
-                  <p class="copyright_text">2020 All Rights Reserved. Design by <a href="">SNAV</a>
-                   </p>
-               </div>
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                      <span id="currentYear"></span> All Rights Reserved. Design by 
+                      <a target="_blank" href="https://snavteam.netlify.app">Snav</a>
+                    </p>
+                  </div>
+                  <script>
+                    // Get the current year and display it
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    
+                  </script>
             </div>
          </div>
       </div>

@@ -349,53 +349,108 @@
 
             ];
     
-            function createGallery() {
-                const galleryGrid = document.querySelector('.gallery-grid');
-                
-                galleryData.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'polaroid-card';
-                    card.innerHTML = `
-                        <div class="pin"></div>
-                        <div class="image-wrapper">
-                            <img src="${item.src}" alt="${item.alt}" class="gallery-image" loading="lazy">
-                        </div>
-                        <div class="image-caption">${item.caption}</div>
-                    `;
-                    galleryGrid.appendChild(card);
-                });
+            function createSkeletons(count) {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            galleryGrid.innerHTML = '';
+            
+            for (let i = 0; i < count; i++) {
+                const skeleton = document.createElement('div');
+                skeleton.className = 'skeleton-card';
+                skeleton.innerHTML = `
+                    <div class="skeleton skeleton-image"></div>
+                    <div class="skeleton skeleton-text"></div>
+                `;
+                galleryGrid.appendChild(skeleton);
             }
-    
-            function initLightbox() {
-                const lightbox = document.querySelector('.lightbox');
-                const lightboxImg = lightbox.querySelector('.lightbox-image');
-                const closeBtn = lightbox.querySelector('.close-lightbox');
-    
-                document.querySelectorAll('.polaroid-card').forEach(card => {
-                    card.addEventListener('click', () => {
-                        const img = card.querySelector('.gallery-image');
-                        lightboxImg.src = img.src;
-                        lightboxImg.alt = img.alt;
-                        lightbox.classList.add('active');
-                    });
-                });
-    
-                closeBtn.addEventListener('click', () => {
-                    lightbox.classList.remove('active');
-                });
-    
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox) {
-                        lightbox.classList.remove('active');
+        }
+
+        function createGallery() {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            galleryGrid.innerHTML = '';
+
+            galleryData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'polaroid-card';
+                card.innerHTML = `
+                    <div class="pin"></div>
+                    <div class="image-wrapper">
+                        <img 
+                            data-src="${item.src}" 
+                            alt="${item.alt}" 
+                            class="gallery-image"
+                        >
+                    </div>
+                    <div class="image-caption">${item.caption}</div>
+                `;
+                galleryGrid.appendChild(card);
+            });
+        }
+
+        // Lazy loading implementation
+        function lazyLoad() {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        
+                        img.onload = () => {
+                            img.classList.add('loaded');
+                        };
+
+                        observer.unobserve(img);
                     }
                 });
-            }
-    
-            // Initialize on page load
-            document.addEventListener('DOMContentLoaded', () => {
-                createGallery();
-                initLightbox();
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
             });
+
+            document.querySelectorAll('.gallery-image').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        function initLightbox() {
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox-image');
+            const closeBtn = lightbox.querySelector('.close-lightbox');
+
+            document.querySelectorAll('.polaroid-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('.gallery-image');
+                    lightboxImg.src = img.src || img.dataset.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize gallery with loading sequence
+        document.addEventListener('DOMContentLoaded', () => {
+            // Show skeletons first
+            createSkeletons(9); // Adjust number based on your needs
+
+            // Simulate loading delay (remove in production)
+            setTimeout(() => {
+                // Create real gallery
+                createGallery();
+                // Initialize lazy loading
+                lazyLoad();
+                // Initialize lightbox
+                initLightbox();
+            }, 1000); // Adjust or remove delay in production
+        });
         </script>
 
 
@@ -452,10 +507,17 @@
      <div class="copyright_section">
         <div class="container">
            <div class="row">
-              <div class="col-sm-12">
-                 <p class="copyright_text">2020 All Rights Reserved. Design by <a href="">SNAV.</a>
-                     </p>
+            <div class="col-sm-12">
+                <p class="copyright_text">
+                  <span id="currentYear"></span> All Rights Reserved. Design by 
+                  <a target="_blank" href="https://snavteam.netlify.app">Snav</a>
+                </p>
               </div>
+              <script>
+                // Get the current year and display it
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+              </script>
            </div>
         </div>
      </div>
@@ -477,6 +539,41 @@
 
 
 <style>
+
+     /* Skeleton Loading Styles */
+     .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .skeleton-card {
+            background: white;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skeleton-image {
+            padding-bottom: 100%;
+            background: #f0f0f0;
+        }
+
+        .skeleton-text {
+            height: 15px;
+            margin-top: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
    * {
        margin: 0;
        padding: 0;
@@ -488,9 +585,8 @@
        min-height: 100vh;
        padding: 2rem;
    }
-   body {
-     
-   }
+   
+   
 
    .gallery-container {
        max-width: 1400px;

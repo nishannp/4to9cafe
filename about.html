@@ -115,7 +115,7 @@
         .modern-hero__image {
             position: relative;
             overflow: hidden;
-            background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: url('cafeimg/3.jpg');
             background-size: cover;
             background-position: center;
             clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
@@ -361,35 +361,7 @@
                   margin-bottom: 1rem;
               }
       
-              /* Team Section */
-              .team-section {
-                  padding: 6rem 2rem;
-                  background: white;
-              }
-      
-              .team-grid {
-                  display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                  gap: 3rem;
-                  margin-top: 4rem;
-              }
-      
-              .team-member {
-                  position: relative;
-                  border-radius: 20px;
-                  overflow: hidden;
-                  aspect-ratio: 1;
-              }
-      
-              .member-content {
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  right: 0;
-                  padding: 2rem;
-                  background: linear-gradient(transparent, rgba(0,0,0,0.8));
-                  color: white;
-              }
+             
       
               /* Gallery Section */
               .gallery-section {
@@ -581,31 +553,337 @@
                 </div>
                 <div class="team-grid">
                     <div class="team-member fade-in">
-                        <img src="cafeimg/ot2.jpg" alt="Team Member">
+                        <img src="cafeimg/ot2.jpg"  loading="lazy" alt="Mishan Thapa Magar Image">
+                        <div class="member-overlay">
+                            <div class="overlay-content">
+                                <p>"Leading with passion and innovation"</p>
+                            </div>
+                        </div>
                         <div class="member-content">
                             <h3>Mishan Thapa Magar</h3>
                             <p>Owner</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
-                   
+                    
                     <div class="team-member fade-in">
-                        <img src="cafeimg/ot3.jpg" alt="Team Member">
+                        <img src="cafeimg/ot3.jpg"  loading="lazy" alt="Bhuwan Thapa Magar">
+                        <div class="member-overlay">
+                            <div class="overlay-content">
+                                <p>"Crafting the perfect cup, every time"</p>
+                            </div>
+                        </div>
                         <div class="member-content">
                             <h3>Bhuwan Thapa Magar</h3>
                             <p>Barista</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
+    
                     <div class="team-member fade-in">
-                      <img src="cafeimg/ot1.jpg" alt="Team Member">
-                      <div class="member-content">
-                          <h3>Prabesh Shahi</h3>
-                          <p>Digital Manager</p>
-                      </div>
-                  </div>
-
+                        <img src="cafeimg/ot1.jpg"  loading="lazy" alt="Prabesh Shahi">
+                        <div class="member-overlay">
+                            <div class="overlay-content">
+                                <p>"Connecting coffee lovers digitally"</p>
+                            </div>
+                        </div>
+                        <div class="member-content">
+                            <h3>Prabesh Shahi</h3>
+                            <p>Digital Manager</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+
+
+
+
+
+
+        <style>
+            .hours-section {
+                background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
+                color: white;
+                padding: 80px 20px;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .hours-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 2;
+            }
+    
+            .hours-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.1;
+                background: 
+                    linear-gradient(45deg, #ffffff 25%, transparent 25%) -50px 0,
+                    linear-gradient(-45deg, #ffffff 25%, transparent 25%) -50px 0,
+                    linear-gradient(45deg, transparent 75%, #ffffff 75%) -50px 0,
+                    linear-gradient(-45deg, transparent 75%, #ffffff 75%) -50px 0;
+                background-size: 100px 100px;
+                animation: backgroundMove 30s linear infinite;
+            }
+    
+            @keyframes backgroundMove {
+                0% {
+                    background-position: -50px 0, -50px 0, -50px 0, -50px 0;
+                }
+                100% {
+                    background-position: 50px 0, 50px 0, 50px 0, 50px 0;
+                }
+            }
+    
+            .hours-header {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+    
+            .hours-title {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+                font-weight: 700;
+                background: linear-gradient(45deg, #e17055, #fab1a0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                position: relative;
+                display: inline-block;
+            }
+    
+            .hours-subtitle {
+                color: #dfe6e9;
+                font-size: 1.1rem;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+    
+            .hours-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 15px;
+                margin-top: 40px;
+            }
+    
+            .day-card {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                padding: 25px 15px;
+                text-align: center;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .day-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(to right, #e17055, #fab1a0);
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+    
+            .day-card:hover::before {
+                transform: scaleX(1);
+            }
+    
+            .day-card:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 255, 255, 0.15);
+            }
+    
+            .day-name {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: #fab1a0;
+            }
+    
+            .hours-time {
+                font-size: 0.9rem;
+                color: #dfe6e9;
+                margin-top: 5px;
+            }
+    
+            .current-status {
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                margin-top: 10px;
+                background: rgba(46, 213, 115, 0.2);
+                color: #2ed573;
+            }
+    
+            .closed {
+                background: rgba(255, 71, 87, 0.2);
+                color: #ff4757;
+            }
+    
+            .coffee-icon {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                color: #e17055;
+            }
+    
+            @media (max-width: 992px) {
+                .hours-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+    
+            @media (max-width: 768px) {
+                .hours-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+    
+                .hours-title {
+                    font-size: 2rem;
+                }
+            }
+    
+            @media (max-width: 480px) {
+                .hours-grid {
+                    grid-template-columns: 1fr;
+                }
+    
+                .day-card {
+                    padding: 20px 15px;
+                }
+            }
+    
+            
+        </style>
+  
+        <section class="hours-section">
+            <div class="hours-background"></div>
+            <div class="hours-container">
+                <div class="hours-header">
+                    <h2 class="hours-title">Opening Hours</h2>
+                    <p class="hours-subtitle">Start your day early with us and enjoy our fresh brews until evening.</p>
+                </div>
+    
+                <div class="hours-grid">
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Sunday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="sunday-status">Open Now</div>
+                    </div>
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Monday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="monday-status">Open Now</div>
+                    </div>
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Tuesday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="tuesday-status">Open Now</div>
+                    </div>
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Wednesday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="wednesday-status">Open Now</div>
+                    </div>
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Thursday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="thursday-status">Open Now</div>
+                    </div>
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Friday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="friday-status">Open Now</div>
+                    </div>
+                    <div class="day-card">
+                        <i class="fas fa-coffee coffee-icon"></i>
+                        <div class="day-name">Saturday</div>
+                        <div class="hours-time">4:00 AM - 9:00 PM</div>
+                        <div class="current-status" id="saturday-status">Open Now</div>
+                    </div>
+                </div>
+    
+               
+            </div>
+        </section>
+    
+       
+    
+        <script>
+            // Update open/closed status based on current time
+            function updateStatus() {
+                const now = new Date();
+                const currentDay = now.getDay();
+                const currentHour = now.getHours();
+                const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                
+                days.forEach((day, index) => {
+                    const status = document.getElementById(`${day}-status`);
+                    if (currentDay === index) {
+                        if (currentHour >= 4 && currentHour < 21) {
+                            status.textContent = 'Open Now';
+                            status.classList.remove('closed');
+                        } else {
+                            status.textContent = 'Closed';
+                            status.classList.add('closed');
+                        }
+                    } else {
+                        status.textContent = 'Open 4AM - 9PM';
+                    }
+                });
+            }
+    
+            // Update status on load and every minute
+            updateStatus();
+            setInterval(updateStatus, 60000);
+    
+            // Add hover animation for day cards
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const icon = card.querySelector('.coffee-icon');
+                    icon.style.transform = 'rotate(10deg)';
+                    setTimeout(() => {
+                        icon.style.transform = 'rotate(0deg)';
+                    }, 200);
+                });
+            });
+        </script>
+    
+
+
+
     
       
         <section class="gallery-section">
@@ -616,44 +894,29 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item fade-in">
-                        <img src="cafeimg/7.jpg" alt="Café Moment">
+                        <img src="cafeimg/7.jpg" loading="lazy" alt="Café Moment">
                     </div>
                     <div class="gallery-item fade-in">
-                        <img src="cafeimg/8.jpg" alt="Café Moment">
+                        <img src="cafeimg/8.jpg"  loading="lazy" alt="Café Moment">
                     </div>
                     <div class="gallery-item fade-in">
-                        <img src="cafeimg/17.jpg" alt="Café Moment">
+                        <img src="cafeimg/17.jpg" loading="lazy" alt="Café Moment">
                     </div>
                     <div class="gallery-item fade-in">
-                        <img src="cafeimg/16.jpg" alt="Café Moment">
+                        <img src="cafeimg/16.jpg"  loading="lazy" alt="Café Moment">
                     </div>
                     <div class="gallery-item fade-in">
-                        <img src="cafeimg/44.jpg" alt="Café Moment">
+                        <img src="cafeimg/44.jpg"  loading="lazy" alt="Café Moment">
                     </div>
                     <div class="gallery-item fade-in">
-                        <img src="cafeimg/45.jpg" alt="Café Moment">
+                        <img src="cafeimg/45.jpg"  loading="lazy" alt="Café Moment">
                     </div>
                 </div>
             </div>
         </section>
     
       
-          <script>
-              // Intersection Observer for fade-in animations
-              const observer = new IntersectionObserver((entries) => {
-                  entries.forEach(entry => {
-                      if (entry.isIntersecting) {
-                          entry.target.classList.add('visible');
-                      }
-                  });
-              }, {
-                  threshold: 0.1
-              });
-      
-              document.querySelectorAll('.fade-in').forEach(element => {
-                  observer.observe(element);
-              });
-          </script>
+        
       
       <!-- about section end -->
       <!-- footer section start -->
@@ -691,10 +954,18 @@
       <div class="copyright_section">
          <div class="container">
             <div class="row">
-               <div class="col-sm-12">
-                  <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://">Snav</a>
-                 </p>
-               </div>
+                <div class="col-sm-12">
+                    <p class="copyright_text">
+                      <span id="currentYear"></span> All Rights Reserved. Design by 
+                      <a target="_blank" href="https://snavteam.netlify.app">Snav</a>
+                    </p>
+                  </div>
+                  <script>
+                    // Get the current year and display it
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    
+                  </script>
+                  
             </div>
          </div>
       </div>
@@ -710,3 +981,234 @@
       <script src="js/custom.js"></script>
    </body>
 </html>
+
+
+<style>
+
+
+.team-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .story-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .story-title h2 {
+            font-size: 2.5rem;
+            color: #2d3436;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #e17055;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .story-title p {
+            color: #636e72;
+            font-size: 1.1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+
+        .member-content {
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .member-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #e17055;
+        }
+
+        .member-content h3 {
+            color: #2d3436;
+            font-size: 1.4rem;
+            margin: 10px 0;
+        }
+
+        .member-content p {
+            color: #636e72;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3436;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #e17055;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-member:hover .member-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            color: white;
+            text-align: center;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .story-title h2 {
+                font-size: 2rem;
+            }
+        }
+</style>
+
+
+
+
+<script>
+    // Add intersection observer for smooth fade-in animation
+   
+</script>
+
+<script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+    });
+
+    /*
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    */
+
+    document.querySelectorAll('.team-member').forEach(member => {
+        observer.observe(member);
+    });
+
+</script>

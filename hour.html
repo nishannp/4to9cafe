@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <style>
+        .hours-section {
+            background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hours-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: 
+                linear-gradient(45deg, #ffffff 25%, transparent 25%) -50px 0,
+                linear-gradient(-45deg, #ffffff 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, transparent 75%, #ffffff 75%) -50px 0,
+                linear-gradient(-45deg, transparent 75%, #ffffff 75%) -50px 0;
+            background-size: 100px 100px;
+            animation: backgroundMove 30s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: -50px 0, -50px 0, -50px 0, -50px 0;
+            }
+            100% {
+                background-position: 50px 0, 50px 0, 50px 0, 50px 0;
+            }
+        }
+
+        .hours-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hours-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #e17055, #fab1a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hours-subtitle {
+            color: #dfe6e9;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .day-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #e17055, #fab1a0);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .day-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .day-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fab1a0;
+        }
+
+        .hours-time {
+            font-size: 0.9rem;
+            color: #dfe6e9;
+            margin-top: 5px;
+        }
+
+        .current-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            background: rgba(46, 213, 115, 0.2);
+            color: #2ed573;
+        }
+
+        .closed {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+        }
+
+        .coffee-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #e17055;
+        }
+
+        @media (max-width: 992px) {
+            .hours-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hours-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hours-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .day-card {
+                padding: 20px 15px;
+            }
+        }
+
+        .contact-bar {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            color: #e17055;
+        }
+    </style>
+</head>
+<body>
+    <section class="hours-section">
+        <div class="hours-background"></div>
+        <div class="hours-container">
+            <div class="hours-header">
+                <h2 class="hours-title">Opening Hours</h2>
+                <p class="hours-subtitle">Start your day early with us and enjoy our fresh brews until evening.</p>
+            </div>
+
+            <div class="hours-grid">
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Sunday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="sunday-status">Open Now</div>
+                </div>
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Monday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="monday-status">Open Now</div>
+                </div>
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Tuesday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="tuesday-status">Open Now</div>
+                </div>
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Wednesday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="wednesday-status">Open Now</div>
+                </div>
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Thursday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="thursday-status">Open Now</div>
+                </div>
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Friday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="friday-status">Open Now</div>
+                </div>
+                <div class="day-card">
+                    <i class="fas fa-coffee coffee-icon"></i>
+                    <div class="day-name">Saturday</div>
+                    <div class="hours-time">4:00 AM - 9:00 PM</div>
+                    <div class="current-status" id="saturday-status">Open Now</div>
+                </div>
+            </div>
+
+            <div class="contact-bar">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <span>+1 234 567 8900</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <span>123 Coffee Street, City</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>info@yourcafe.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <script>
+        // Update open/closed status based on current time
+        function updateStatus() {
+            const now = new Date();
+            const currentDay = now.getDay();
+            const currentHour = now.getHours();
+            const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            
+            days.forEach((day, index) => {
+                const status = document.getElementById(`${day}-status`);
+                if (currentDay === index) {
+                    if (currentHour >= 4 && currentHour < 21) {
+                        status.textContent = 'Open Now';
+                        status.classList.remove('closed');
+                    } else {
+                        status.textContent = 'Closed';
+                        status.classList.add('closed');
+                    }
+                } else {
+                    status.textContent = 'Open 4AM - 9PM';
+                }
+            });
+        }
+
+        // Update status on load and every minute
+        updateStatus();
+        setInterval(updateStatus, 60000);
+
+        // Add hover animation for day cards
+        document.querySelectorAll('.day-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.coffee-icon');
+                icon.style.transform = 'rotate(10deg)';
+                setTimeout(() => {
+                    icon.style.transform = 'rotate(0deg)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
