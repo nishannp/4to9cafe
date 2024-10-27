@@ -1,376 +1,375 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4 O 9 Cafe - Premium Coffee Experience</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<!-- Coffee Origins Section -->
+<section class="origins-section">
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      .origins-section {
+        padding: 80px 20px;
+        background-color: #f9f5f0;
+      }
+  
+      .origins-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+  
+      .origins-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+  
+      .origins-title h2 {
+        font-size: 2.5rem;
+        color: #2c1810;
+        margin-bottom: 15px;
+      }
+  
+      .origins-title p {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+  
+      .origins-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+  
+      .origin-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+  
+      .origin-card:hover {
+        transform: translateY(-10px);
+      }
+  
+      .origin-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+  
+      .origin-content {
+        padding: 20px;
+      }
+  
+      .origin-content h3 {
+        color: #2c1810;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+  
+      .origin-content p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+  
+      /* Brewing Process Section */
+      .brewing-section {
+        padding: 100px 20px;
+        background-color: #2c1810;
+        color: white;
+      }
+  
+      .brewing-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+  
+      .brewing-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+  
+      .brewing-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+  
+      .brewing-steps {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+  
+      .brewing-step {
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+      }
+  
+      .step-number {
+        font-size: 4rem;
+        font-weight: bold;
+        color: rgba(255,255,255,0.1);
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+  
+      .step-content {
+        position: relative;
+        z-index: 2;
+      }
+  
+      .step-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+  
+      .step-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+  
+      /* Seasonal Specials Section */
+      .seasonal-section {
+        padding: 80px 20px;
+        background: linear-gradient(45deg, #f9f5f0, #fff);
+      }
+  
+      .seasonal-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+  
+      .seasonal-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+  
+      .seasonal-header h2 {
+        font-size: 2.5rem;
+        color: #2c1810;
+        margin-bottom: 15px;
+      }
+  
+      .seasonal-content {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+  
+      .seasonal-image {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+  
+      .seasonal-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
+  
+      .seasonal-info {
+        flex: 1;
+        padding: 30px;
+      }
+  
+      .seasonal-badge {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+      }
+  
+      .seasonal-info h3 {
+        font-size: 2rem;
+        color: #2c1810;
+        margin-bottom: 20px;
+      }
+  
+      .seasonal-info p {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+  
+      .seasonal-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background: #2c1810;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: background 0.3s ease;
+      }
+  
+      .seasonal-button:hover {
+        background: #4a2b1d;
+      }
+  
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .origins-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+  
+        .brewing-step {
+          flex: 0 0 50%;
+          margin-bottom: 40px;
         }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                        url('coffee-images/wallpaper.png') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+  
+        .seasonal-content {
+          flex-direction: column;
         }
-
-        .hero-content {
-            padding: 2rem;
+  
+        .seasonal-image, .seasonal-info {
+          width: 100%;
         }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+      }
+  
+      @media (max-width: 768px) {
+        .origins-grid {
+          grid-template-columns: 1fr;
         }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+  
+        .brewing-step {
+          flex: 0 0 100%;
         }
-
-        /* About Section */
-        .about {
-            padding: 5rem 2rem;
-            background: #f9f9f9;
+  
+        .origins-title h2,
+        .brewing-title h2,
+        .seasonal-header h2 {
+          font-size: 2rem;
         }
-
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+  
+        .seasonal-info h3 {
+          font-size: 1.75rem;
         }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Menu Preview */
-        .menu-preview {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .menu-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .menu-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .menu-item-content {
-            padding: 1.5rem;
-        }
-
-        .menu-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .menu-item p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-weight: bold;
-            color: #e67e22;
-            font-size: 1.2rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 2rem;
-            background: #2c3e50;
-            color: white;
-        }
-
-        .testimonials-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 2rem;
-            background: #f9f9f9;
-        }
-
-        .contact-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      }
     </style>
-</head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 data-aos="fade-up">4 O 9 CAFE</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Experience Premium Coffee & Cuisine</p>
+  
+    <div class="origins-container">
+      <div class="origins-title">
+        <h2>Our Coffee Origins</h2>
+        <p>Discover the unique stories behind our carefully selected coffee beans from around the world.</p>
+      </div>
+      <div class="origins-grid">
+        <div class="origin-card">
+          <img src="/api/placeholder/400/200" alt="Ethiopian Coffee" class="origin-img">
+          <div class="origin-content">
+            <h3>Ethiopian Yirgacheffe</h3>
+            <p>Known for its bright, clean taste with complex floral and citrus notes. Grown in the highlands of southern Ethiopia.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-content">
-            <div class="about-text" data-aos="fade-right">
-                <h2>Our Story</h2>
-                <p>Welcome to 4 O 9 Cafe, where passion meets perfection. Since our establishment, we've been dedicated to serving the finest coffee and creating memorable dining experiences for our valued guests.</p>
-                <p>Our carefully curated menu features both traditional favorites and innovative creations, all made with premium ingredients sourced from local suppliers.</p>
-            </div>
-            <div class="about-image" data-aos="fade-left">
-                <img src="cafeimg/25.jpg" alt="Cafe Interior">
-            </div>
+        <div class="origin-card">
+          <img src="/api/placeholder/400/200" alt="Colombian Coffee" class="origin-img">
+          <div class="origin-content">
+            <h3>Colombian Supremo</h3>
+            <p>A balanced medium-bodied coffee with sweet caramel notes and a smooth chocolate finish.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Menu Preview -->
-    <section class="menu-preview">
-        <div class="menu-grid">
-            <div class="menu-item" data-aos="fade-up">
-                <img src="coffee-images/espreso.webp" alt="Specialty Coffee">
-                <div class="menu-item-content">
-                    <h3>Signature Latte</h3>
-                    <p>House-blend espresso with velvety steamed milk and artisanal foam</p>
-                    <span class="price">$4.50</span>
-                </div>
-            </div>
-            <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="coffee-images/espreso.webp" alt="Breakfast">
-                <div class="menu-item-content">
-                    <h3>Avocado Toast</h3>
-                    <p>Sourdough bread, smashed avocado, poached eggs, and microgreens</p>
-                    <span class="price">$12.00</span>
-                </div>
-            </div>
-            <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="coffee-images/espreso.webp" alt="Dessert">
-                <div class="menu-item-content">
-                    <h3>Tiramisu</h3>
-                    <p>Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream</p>
-                    <span class="price">$8.00</span>
-                </div>
-            </div>
+        <div class="origin-card">
+          <img src="/api/placeholder/400/200" alt="Sumatra Coffee" class="origin-img">
+          <div class="origin-content">
+            <h3>Sumatra Mandheling</h3>
+            <p>Full-bodied with earthy flavors, subtle spice notes, and a rich, smooth finish.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="testimonials-content">
-            <h2 data-aos="fade-up">What Our Customers Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <p>"The best coffee I've ever had! The atmosphere is perfect for both work and relaxation. Highly recommended!"</p>
-                    <span class="testimonial-author">- Sarah Johnson</span>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <p>"Amazing brunch spot! The avocado toast is to die for, and the service is always exceptional."</p>
-                    <span class="testimonial-author">- Michael Chen</span>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <p>"A hidden gem! The attention to detail in both food and service makes this place stand out."</p>
-                    <span class="testimonial-author">- Emma Rodriguez</span>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Brewing Process Section -->
+  <section class="brewing-section">
+    <div class="brewing-container">
+      <div class="brewing-title">
+        <h2>Our Brewing Process</h2>
+        <p>Perfection in every cup through our precise brewing methods</p>
+      </div>
+      <div class="brewing-steps">
+        <div class="brewing-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <div class="step-icon">🌱</div>
+            <h3 class="step-title">Bean Selection</h3>
+            <p>Carefully selected premium beans from sustainable sources</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact">
-        <div class="contact-content">
-            <h2 data-aos="fade-up">Visit Us</h2>
-            <div class="contact-info">
-                <div class="contact-card" data-aos="fade-up">
-                    <h3>Location</h3>
-                    <p>123 Coffee Street<br>Cafe District, City 12345</p>
-                </div>
-                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Hours</h3>
-                    <p>Monday - Friday: 7AM - 8PM<br>Weekend: 8AM - 9PM</p>
-                </div>
-                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Contact</h3>
-                    <p>Phone: (555) 123-4567<br>Email: hello@409cafe.com</p>
-                </div>
-            </div>
+        <div class="brewing-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <div class="step-icon">⚖️</div>
+            <h3 class="step-title">Precise Measuring</h3>
+            <p>Exact portions for the perfect strength</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 4 O 9 Cafe. All rights reserved.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Intersection Observer for fade-up animations
-        const observerOptions = {
-            root: null,
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach(element => {
-            observer.observe(element);
-        });
-    </script>
-</body>
-</html>
+        <div class="brewing-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <div class="step-icon">☕</div>
+            <h3 class="step-title">Artisan Brewing</h3>
+            <p>Crafted by skilled baristas using premium equipment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Seasonal Specials Section -->
+  <section class="seasonal-section">
+    <div class="seasonal-container">
+      <div class="seasonal-header">
+        <h2>Seasonal Specials</h2>
+      </div>
+      <div class="seasonal-content">
+        <div class="seasonal-image">
+          <img src="/api/placeholder/600/400" alt="Seasonal Special Coffee">
+        </div>
+        <div class="seasonal-info">
+          <span class="seasonal-badge">Limited Time</span>
+          <h3>Autumn Spice Latte</h3>
+          <p>Embrace the season with our signature autumn blend, featuring warm spices, premium espresso, and house-made pumpkin syrup. Topped with fresh whipped cream and a sprinkle of cinnamon.</p>
+          <a href="#" class="seasonal-button">Try Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+  // Add smooth scroll animation for brewing steps
+  document.addEventListener('DOMContentLoaded', function() {
+    const brewingSteps = document.querySelectorAll('.brewing-step');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    brewingSteps.forEach(step => {
+      step.style.opacity = 0;
+      step.style.transform = 'translateY(20px)';
+      step.style.transition = 'all 0.6s ease-out';
+      observer.observe(step);
+    });
+  
+    // Add hover effect to origin cards
+    const originCards = document.querySelectorAll('.origin-card');
+    originCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
+    });
+  });
+  </script>

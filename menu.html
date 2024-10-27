@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .menu-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      padding: 40px 0;
+    }
+
+    .hero-section::after {
+      content: '☕';
+      font-size: 120px;
+      position: absolute;
+      opacity: 0.1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #c7a17a, #e6d5c3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-section p {
+      color: #888;
+      font-size: 1.2rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-category {
+      background: #252525;
+      border-radius: 20px;
+      padding: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-category:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-title {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #c7a17a;
+      color: #c7a17a;
+    }
+
+    .coffee-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .coffee-item:hover {
+      background: #2c2c2c;
+      transform: scale(1.02);
+    }
+
+    .coffee-info {
+      flex-grow: 1;
+    }
+
+    .coffee-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .coffee-description {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .coffee-price {
+      background: #c7a17a;
+      color: #1a1a1a;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-left: 15px;
+    }
+
+    .temperature-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .hot {
+      background: #ff4757;
+    }
+
+    .cold {
+      background: #70a1ff;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+      
+      .menu-wrapper {
+        padding: 20px 10px;
+      }
+      
+      .menu-category {
+        padding: 20px;
+      }
+      
+      .category-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .menu-category {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .menu-category:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .menu-category:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-wrapper">
+    <div class="hero-section">
+      <h1>Premium Coffee Selection</h1>
+      <p>Elevate your day with our artisanal coffee offerings</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-category">
+        <h2 class="category-title">Hot Classics</h2>
+        <div class="coffee-item">
+          <span class="temperature-indicator hot"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Espresso</div>
+            <div class="coffee-description">Pure and intense shot of coffee</div>
+          </div>
+          <div class="coffee-price">$3.50</div>
+        </div>
+        <div class="coffee-item">
+          <span class="temperature-indicator hot"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Cappuccino</div>
+            <div class="coffee-description">Espresso with steamed milk foam</div>
+          </div>
+          <div class="coffee-price">$4.50</div>
+        </div>
+        <div class="coffee-item">
+          <span class="temperature-indicator hot"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Café Latte</div>
+            <div class="coffee-description">Espresso with steamed milk</div>
+          </div>
+          <div class="coffee-price">$4.75</div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h2 class="category-title">Iced Favorites</h2>
+        <div class="coffee-item">
+          <span class="temperature-indicator cold"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Iced Americano</div>
+            <div class="coffee-description">Espresso with cold water and ice</div>
+          </div>
+          <div class="coffee-price">$4.00</div>
+        </div>
+        <div class="coffee-item">
+          <span class="temperature-indicator cold"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Cold Brew</div>
+            <div class="coffee-description">Slow-steeped for 12 hours</div>
+          </div>
+          <div class="coffee-price">$4.50</div>
+        </div>
+        <div class="coffee-item">
+          <span class="temperature-indicator cold"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Iced Latte</div>
+            <div class="coffee-description">Espresso with cold milk and ice</div>
+          </div>
+          <div class="coffee-price">$5.00</div>
+        </div>
+      </div>
+
+      <div class="menu-category">
+        <h2 class="category-title">Specialty Drinks</h2>
+        <div class="coffee-item">
+          <span class="temperature-indicator hot"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Caramel Macchiato</div>
+            <div class="coffee-description">Vanilla, milk, espresso, caramel</div>
+          </div>
+          <div class="coffee-price">$5.25</div>
+        </div>
+        <div class="coffee-item">
+          <span class="temperature-indicator cold"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Frappuccino</div>
+            <div class="coffee-description">Blended coffee with cream</div>
+          </div>
+          <div class="coffee-price">$5.50</div>
+        </div>
+        <div class="coffee-item">
+          <span class="temperature-indicator hot"></span>
+          <div class="coffee-info">
+            <div class="coffee-name">Affogato</div>
+            <div class="coffee-description">Espresso poured over vanilla ice cream</div>
+          </div>
+          <div class="coffee-price">$6.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

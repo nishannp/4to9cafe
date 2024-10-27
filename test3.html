@@ -1,0 +1,318 @@
+<section class="signature-selections">
+    <style>
+      .signature-selections {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #fff5e6 0%, #ffffff 100%);
+        position: relative;
+        overflow: hidden;
+      }
+  
+      .signature-selections::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(162, 128, 92, 0.2), transparent);
+      }
+  
+      .signature-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+  
+      .signature-header {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+  
+      .signature-title {
+        font-size: 2.8rem;
+        color: #2c1810;
+        margin-bottom: 20px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        position: relative;
+        display: inline-block;
+      }
+  
+      .signature-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #a2805c, #d4b08c);
+        border-radius: 2px;
+      }
+  
+      .signature-subtitle {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+  
+      .signature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        position: relative;
+      }
+  
+      .signature-item {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+  
+      .signature-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      }
+  
+      .signature-image-wrapper {
+        position: relative;
+        padding-top: 75%; /* 4:3 Aspect Ratio */
+        overflow: hidden;
+      }
+  
+      .signature-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+  
+      .signature-item:hover .signature-image {
+        transform: scale(1.1);
+      }
+  
+      .signature-content {
+        padding: 25px;
+        position: relative;
+        background: white;
+      }
+  
+      .signature-badge {
+        position: absolute;
+        top: -15px;
+        right: 20px;
+        background: #2c1810;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+  
+      .item-title {
+        font-size: 1.4rem;
+        color: #2c1810;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+  
+      .item-description {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+  
+      .item-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+      }
+  
+      .item-price {
+        font-size: 1.3rem;
+        color: #2c1810;
+        font-weight: 600;
+      }
+  
+      .order-button {
+        padding: 8px 20px;
+        background: linear-gradient(135deg, #a2805c, #d4b08c);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+  
+      .order-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(162, 128, 92, 0.3);
+      }
+  
+      /* Decorative Elements */
+      .decoration-dot {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #d4b08c;
+        opacity: 0.3;
+      }
+  
+      .dot-1 { top: 20%; left: 5%; }
+      .dot-2 { top: 60%; right: 8%; }
+      .dot-3 { bottom: 10%; left: 15%; }
+  
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .signature-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+      }
+  
+      @media (max-width: 768px) {
+        .signature-selections {
+          padding: 60px 20px;
+        }
+  
+        .signature-title {
+          font-size: 2.2rem;
+        }
+  
+        .signature-grid {
+          grid-template-columns: 1fr;
+          max-width: 450px;
+          margin: 0 auto;
+        }
+  
+        .signature-item {
+          max-width: 100%;
+        }
+      }
+  
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      .animate-fade-in {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+  
+      .delay-1 { animation-delay: 0.2s; }
+      .delay-2 { animation-delay: 0.4s; }
+    </style>
+  
+    <div class="signature-container">
+      <!-- Decorative Elements -->
+      <div class="decoration-dot dot-1"></div>
+      <div class="decoration-dot dot-2"></div>
+      <div class="decoration-dot dot-3"></div>
+  
+      <div class="signature-header">
+        <h2 class="signature-title">Our Signature Selections</h2>
+        <p class="signature-subtitle">Indulge in our meticulously crafted premium offerings, where every sip and bite tells a story of excellence</p>
+      </div>
+  
+      <div class="signature-grid">
+        <div class="signature-item animate-fade-in">
+          <div class="signature-image-wrapper">
+            <img src="/api/placeholder/400/300" alt="Signature Caramel Latte" class="signature-image" loading="lazy">
+          </div>
+          <div class="signature-content">
+            <span class="signature-badge">Bestseller</span>
+            <h3 class="item-title">Signature Caramel Latte</h3>
+            <p class="item-description">Hand-crafted espresso with velvety steamed milk and house-made caramel sauce.</p>
+            <div class="item-footer">
+              <span class="item-price">$4.95</span>
+              <button class="order-button">Order Now</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="signature-item animate-fade-in delay-1">
+          <div class="signature-image-wrapper">
+            <img src="/api/placeholder/400/300" alt="Artisan Almond Croissant" class="signature-image" loading="lazy">
+          </div>
+          <div class="signature-content">
+            <span class="signature-badge">Chef's Choice</span>
+            <h3 class="item-title">Artisan Almond Croissant</h3>
+            <p class="item-description">Flaky, butter-layered pastry filled with rich almond cream and toasted almonds.</p>
+            <div class="item-footer">
+              <span class="item-price">$3.95</span>
+              <button class="order-button">Order Now</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="signature-item animate-fade-in delay-2">
+          <div class="signature-image-wrapper">
+            <img src="/api/placeholder/400/300" alt="24-Hour Cold Brew" class="signature-image" loading="lazy">
+          </div>
+          <div class="signature-content">
+            <span class="signature-badge">House Special</span>
+            <h3 class="item-title">24-Hour Cold Brew</h3>
+            <p class="item-description">Smooth, full-bodied cold brew steeped for 24 hours with premium single-origin beans.</p>
+            <div class="item-footer">
+              <span class="item-price">$4.50</span>
+              <button class="order-button">Order Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+  
+        // Observe all signature items
+        document.querySelectorAll('.signature-item').forEach(item => {
+          observer.observe(item);
+        });
+  
+        // Hover effect for buttons
+        document.querySelectorAll('.order-button').forEach(button => {
+          button.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-2px)';
+          });
+          button.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0)';
+          });
+        });
+      });
+    </script>
+  </section>

@@ -1,622 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4 O 9 Cafe - Premium Coffee Experience</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <style>
-        /* Previous styles remain the same... */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    body {
+      min-height: 100vh;
+      background: #f5f5f5;
+      padding: 20px;
+    }
 
-        /* Enhanced Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                        url('coffee-images/wallpaper.png') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
+    .menu-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-30px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-15px) translateX(-50%);
-            }
-        }
+    .menu-header h1 {
+      color: #2c1810;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        /* Enhanced About Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+    .menu-header p {
+      color: #8b7355;
+      font-style: italic;
+    }
 
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+    .menu-categories {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
 
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #e67e22;
-        }
+    .category-btn {
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      color: #8b7355;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
 
-        /* Enhanced Menu Preview */
-        .menu-categories {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
+    .category-btn.active {
+      color: #2c1810;
+      border-bottom: 2px solid #c7a17a;
+    }
 
-        .category-btn {
-            padding: 0.5rem 1.5rem;
-            border: none;
-            background: #f0f0f0;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
 
-        .category-btn.active {
-            background: #e67e22;
-            color: white;
-        }
+    .menu-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
 
-        /* Enhanced Testimonials */
-        .testimonial-card {
-            position: relative;
-            padding-top: 3rem;
-            margin-top: 2rem;
-        }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
 
-        .testimonial-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 4px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+    .menu-item h3 {
+      color: #2c1810;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
 
-        .testimonial-rating {
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
+    .menu-item p {
+      color: #8b7355;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
 
-        /* Gallery Section */
-        .gallery {
-            padding: 5rem 2rem;
-            background: white;
-        }
+    .menu-item .price {
+      color: #c7a17a;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
 
-        .gallery-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 5rem 2rem;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-                        url('coffee-images/wallpaper.png') center/cover fixed;
-            color: white;
-        }
-
-        .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #e67e22;
-        }
-
-        /* Newsletter Section */
-        .newsletter {
-            padding: 5rem 2rem;
-            background: #f9f9f9;
-        }
-
-        .newsletter-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: #e67e22;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background: #d35400;
-        }
-
-        /* Mobile Responsive Adjustments */
-        @media (max-width: 768px) {
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .menu-header h1 {
+        font-size: 2rem;
+      }
+      
+      .menu-items {
+        grid-template-columns: 1fr;
+      }
+      
+      .menu-container {
+        padding: 20px 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 data-aos="fade-up">4 O 9 CAFE</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Experience Premium Coffee & Cuisine</p>
-            <p data-aos="fade-up" data-aos-delay="400">Crafting Moments, One Cup at a Time</p>
-        </div>
-        <div class="scroll-indicator">
-            ↓
-        </div>
-    </section>
+  <div class="menu-container">
+    <div class="menu-header">
+      <h1>Our Coffee Selection</h1>
+      <p>Crafted with passion, served with love</p>
+    </div>
+    
+    <div class="menu-categories">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="hot">Hot Coffee</button>
+      <button class="category-btn" data-category="cold">Cold Coffee</button>
+      <button class="category-btn" data-category="special">Specialties</button>
+    </div>
+    
+    <div class="menu-items">
+      <!-- Menu items will be dynamically populated -->
+    </div>
+  </div>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-content">
-            <div class="about-text" data-aos="fade-right">
-                <h2>Our Story</h2>
-                <p>Welcome to 4 O 9 Cafe, where passion meets perfection. Since our establishment, we've been dedicated to serving the finest coffee and creating memorable dining experiences for our valued guests.</p>
-                <p>Our carefully curated menu features both traditional favorites and innovative creations, all made with premium ingredients sourced from local suppliers.</p>
-                
-                <div class="features-grid">
-                    <div class="feature-card" data-aos="fade-up">
-                        <div class="feature-icon">☕</div>
-                        <h3>Premium Coffee</h3>
-                        <p>Sourced from sustainable farms</p>
-                    </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="feature-icon">🌱</div>
-                        <h3>Fresh Ingredients</h3>
-                        <p>Local and organic produce</p>
-                    </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="feature-icon">👨‍🍳</div>
-                        <h3>Expert Baristas</h3>
-                        <p>Crafting perfect beverages</p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image" data-aos="fade-left">
-                <img src="cafeimg/25.jpg" alt="Cafe Interior">
-            </div>
-        </div>
-    </section>
+  <script>
+    const menuItems = [
+      {
+        name: "Espresso",
+        description: "Pure and intense shot of coffee",
+        price: "$3.50",
+        category: "hot"
+      },
+      {
+        name: "Cappuccino",
+        description: "Espresso with steamed milk foam",
+        price: "$4.50",
+        category: "hot"
+      },
+      {
+        name: "Cafe Latte",
+        description: "Espresso with steamed milk",
+        price: "$4.75",
+        category: "hot"
+      },
+      {
+        name: "Iced Americano",
+        description: "Espresso with cold water and ice",
+        price: "$4.00",
+        category: "cold"
+      },
+      {
+        name: "Frappuccino",
+        description: "Blended coffee with cream",
+        price: "$5.50",
+        category: "cold"
+      },
+      {
+        name: "Caramel Macchiato",
+        description: "Vanilla, milk, espresso, caramel",
+        price: "$5.25",
+        category: "special"
+      },
+      {
+        name: "Mocha",
+        description: "Espresso with chocolate and milk",
+        price: "$4.75",
+        category: "hot"
+      },
+      {
+        name: "Cold Brew",
+        description: "Slow-steeped for 12 hours",
+        price: "$4.50",
+        category: "cold"
+      },
+      {
+        name: "Affogato",
+        description: "Espresso poured over vanilla ice cream",
+        price: "$6.00",
+        category: "special"
+      }
+    ];
 
-    <!-- Menu Preview -->
-    <section class="menu-preview">
-        <div class="menu-categories">
-            <button class="category-btn active">All</button>
-            <button class="category-btn">Coffee</button>
-            <button class="category-btn">Breakfast</button>
-            <button class="category-btn">Pastries</button>
-            <button class="category-btn">Lunch</button>
-        </div>
-        <div class="menu-grid">
-            <!-- Previous menu items remain -->
-            <div class="menu-item" data-aos="fade-up">
-                <img src="coffee-images/espreso.webp" alt="Specialty Coffee">
-                <div class="menu-item-content">
-                    <h3>Signature Latte</h3>
-                    <p>House-blend espresso with velvety steamed milk and artisanal foam</p>
-                    <span class="price">$4.50</span>
-                </div>
-            </div>
-            <!-- Add more menu items -->
-            <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="coffee-images/espreso.webp" alt="Breakfast">
-                <div class="menu-item-content">
-                    <h3>Eggs Benedict</h3>
-                    <p>Poached eggs on English muffin with hollandaise sauce</p>
-                    <span class="price">$14.00</span>
-                </div>
-            </div>
-            <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="coffee-images/espreso.webp" alt="Pastry">
-                <div class="menu-item-content">
-                    <h3>Almond Croissant</h3>
-                    <p>Flaky croissant filled with almond cream</p>
-                    <span class="price">$4.50</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    function displayMenuItems(category = 'all') {
+      const menuContainer = document.querySelector('.menu-items');
+      menuContainer.innerHTML = '';
+      
+      const filteredItems = category === 'all' 
+        ? menuItems 
+        : menuItems.filter(item => item.category === category);
+      
+      filteredItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'menu-item';
+        itemElement.innerHTML = `
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <span class="price">${item.price}</span>
+        `;
+        menuContainer.appendChild(itemElement);
+      });
+    }
 
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="gallery-grid">
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="coffee-images/espreso.webp" alt="Cafe Ambiance">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="coffee-images/espreso.webp" alt="Coffee Art">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="coffee-images/espreso.webp" alt="Food Presentation">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <img src="coffee-images/espreso.webp" alt="Desserts">
-            </div>
-        </div>
-    </section>
+    // Initialize menu
+    displayMenuItems();
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item" data-aos="fade-up">
-                <h3>5K+</h3>
-                <p>Happy Customers</p>
-            </div>
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                <h3>15+</h3>
-                <p>Coffee Varieties</p>
-            </div>
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                <h3>4.9</h3>
-                <p>Average Rating</p>
-            </div>
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                <h3>50+</h3>
-                <p>Menu Items</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Testimonials -->
-    <section class="testimonials">
-        <div class="testimonials-content">
-            <h2 data-aos="fade-up">What Our Customers Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <img src="coffee-images/espreso.webp" alt="Sarah Johnson" class="testimonial-image">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p>"The best coffee I've ever had! The atmosphere is perfect for both work and relaxation. The staff is incredibly knowledgeable and friendly. Their seasonal specials are always amazing!"</p>
-                    <span class="testimonial-author">Sarah Johnson</span>
-                    <p class="testimonial-details">Regular Customer | Coffee Enthusiast</p>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="coffee-images/espreso.webp" alt="Michael Chen" class="testimonial-image">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p>"Amazing brunch spot! The avocado toast is to die for, and the service is always exceptional. I love their commitment to using local ingredients. The weekend specials are worth waking up early for!"</p>
-                    <span class="testimonial-author">Michael Chen</span>
-                    <p class="testimonial-details">Food Blogger | Weekend Regular</p>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="coffee-images/espreso.webp" alt="Emma Rodriguez" class="testimonial-image">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p>"A hidden gem! The attention to detail in both food and service makes this place stand out. Their pastry chef is incredibly talented, and the coffee is consistently perfect. Love the cozy atmosphere!"</p>
-                    <span class="testimonial-author">Emma Rodriguez</span>
-                    <p class="testimonial-details">Local Food Critic</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="newsletter-content">
-            <h2 data-aos="fade-up">Stay Updated</h2>
-            <p data-aos="fade-up">Subscribe to our newsletter for exclusive offers, events, and recipes!</p>
-            <form class="newsletter-form" data-aos="fade-up">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="contact-content">
-            <h2 data-aos="fade-up">Visit Us</h2>
-            <div class="contact-info">
-                <div class="contact-card" data-aos="fade-up">
-                    <h3>Location</h3>
-                    <p>123 Coffee Street<br>Cafe District, City 12345</p>
-                    <div class="contact-map" data-aos="fade-up">
-                        <img src="coffee-images/espreso.webp" alt="Map Location">
-                    </div>
-                </div>
-                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Hours</h3>
-                    <p>Monday - Friday: 7AM - 8PM<br>Weekend: 8AM - 9PM</p>
-                    <p class="special-hours">Happy Hour: 3PM - 5PM Daily</p>
-                    <p class="holiday-hours">Holiday hours may vary</p>
-                </div>
-                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Contact</h3>
-                    <p>Phone: (555) 123-4567<br>Email: hello@409cafe.com</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">Facebook</a>
-                        <a href="#" class="social-link">Instagram</a>
-                        <a href="#" class="social-link">Twitter</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>4 O 9 CAFE</h3>
-                    <p>Crafting premium coffee experiences since 2020.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#menu">Menu</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Policies</h3>
-                    <ul>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                        <li><a href="#faq">FAQs</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 4 O 9 Cafe. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
+    // Add event listeners to category buttons
+    document.querySelectorAll('.category-btn').forEach(button => {
+      button.addEventListener('click', (e) => {
+        // Remove active class from all buttons
+        document.querySelectorAll('.category-btn').forEach(btn => {
+          btn.classList.remove('active');
         });
-
-        // Menu category buttons functionality
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                // Here you would typically filter menu items
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Here you would typically handle the form submission
-                alert('Thank you for subscribing!');
-                newsletterForm.reset();
-            });
-        }
-
-        // Intersection Observer for fade-up animations
-        const observerOptions = {
-            root: null,
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach(element => {
-            observer.observe(element);
-        });
-    </script>
-
-    <style>
-        /* Additional styles for enhanced sections */
-        .social-links {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .social-link {
-            color: #e67e22;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-link:hover {
-            color: #d35400;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #e67e22;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            text-align: center;
-        }
-
-        .contact-map {
-            margin-top: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .contact-map img {
-            width: 100%;
-            height: auto;
-        }
-
-        .special-hours {
-            color: #e67e22;
-            margin-top: 0.5rem;
-            font-weight: bold;
-        }
-
-        .holiday-hours {
-            font-style: italic;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-    </style>
+        
+        // Add active class to clicked button
+        e.target.classList.add('active');
+        
+        // Display filtered items
+        displayMenuItems(e.target.dataset.category);
+      });
+    });
+  </script>
 </body>
 </html>

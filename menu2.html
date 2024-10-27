@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=');
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.5;
+    }
+
+    .menu-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .hero {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 100px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(199, 161, 122, 0.1) 0%, rgba(10, 10, 10, 1) 70%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #e6b17a, #c7a17a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #888;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease 0.3s forwards;
+    }
+
+    .menu-section {
+      margin-bottom: 100px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #c7a17a;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .coffee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .coffee-card {
+      background: linear-gradient(145deg, #151515, #1a1a1a);
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      cursor: pointer;
+    }
+
+    .coffee-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(199, 161, 122, 0.1));
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .coffee-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .coffee-card:hover::before {
+      opacity: 1;
+    }
+
+    .coffee-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .coffee-name::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #c7a17a;
+      transition: width 0.3s ease;
+    }
+
+    .coffee-card:hover .coffee-name::after {
+      width: 60px;
+    }
+
+    .coffee-description {
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .coffee-price {
+      font-size: 1.2rem;
+      color: #c7a17a;
+      font-weight: 600;
+    }
+
+    .badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .badge.hot {
+      background: rgba(255, 71, 87, 0.2);
+      color: #ff4757;
+    }
+
+    .badge.cold {
+      background: rgba(112, 161, 255, 0.2);
+      color: #70a1ff;
+    }
+
+    .coffee-card:hover .badge {
+      transform: scale(1.1);
+    }
+
+    .size-options {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .size-option {
+      padding: 5px 12px;
+      border-radius: 15px;
+      background: rgba(199, 161, 122, 0.1);
+      color: #888;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .size-option:hover {
+      background: rgba(199, 161, 122, 0.2);
+      color: #fff;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.6s forwards;
+    }
+
+    .scroll-indicator p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .scroll-indicator .line {
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(to bottom, #c7a17a 50%, transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+      50.1% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .coffee-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .menu-container {
+        padding: 40px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain-overlay"></div>
+  
+  <div class="menu-container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Artisanal Coffee</h1>
+        <p>Experience the perfect blend of tradition and innovation</p>
+      </div>
+      <div class="scroll-indicator">
+        <p>Scroll to explore</p>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2 class="section-title">Signature Collection</h2>
+      <div class="coffee-grid">
+        <div class="coffee-card">
+          <span class="badge hot">Hot</span>
+          <h3 class="coffee-name">Single Origin Espresso</h3>
+          <p class="coffee-description">Hand-picked beans roasted to perfection, creating a rich and complex flavor profile with notes of dark chocolate and caramel.</p>
+          <div class="coffee-price">$4.50</div>
+          <div class="size-options">
+            <span class="size-option">Single</span>
+            <span class="size-option">Double</span>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <span class="badge cold">Iced</span>
+          <h3 class="coffee-name">Vanilla Bean Frappé</h3>
+          <p class="coffee-description">A luxurious blend of premium coffee, madagascar vanilla, and fresh cream, topped with whipped cream and caramel drizzle.</p>
+          <div class="coffee-price">$6.75</div>
+          <div class="size-options">
+            <span class="size-option">Regular</span>
+            <span class="size-option">Large</span>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <span class="badge hot">Hot</span>
+          <h3 class="coffee-name">Honey Lavender Latte</h3>
+          <p class="coffee-description">Smooth espresso combined with local honey and subtle lavender essence, finished with velvety steamed milk.</p>
+          <div class="coffee-price">$5.95</div>
+          <div class="size-options">
+            <span class="size-option">Small</span>
+            <span class="size-option">Regular</span>
+            <span class="size-option">Large</span>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <span class="badge cold">Iced</span>
+          <h3 class="coffee-name">Nitro Cold Brew</h3>
+          <p class="coffee-description">24-hour steeped coffee charged with nitrogen for a naturally sweet taste and cascading, creamy texture.</p>
+          <div class="coffee-price">$5.50</div>
+          <div class="size-options">
+            <span class="size-option">Regular</span>
+            <span class="size-option">Large</span>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <span class="badge hot">Hot</span>
+          <h3 class="coffee-name">Rose Gold Latte</h3>
+          <p class="coffee-description">Our signature blend with rose syrup and gold dust, creating an Instagram-worthy drink that tastes as good as it looks.</p>
+          <div class="coffee-price">$6.95</div>
+          <div class="size-options">
+            <span class="size-option">Regular</span>
+            <span class="size-option">Large</span>
+          </div>
+        </div>
+
+        <div class="coffee-card">
+          <span class="badge cold">Iced</span>
+          <h3 class="coffee-name">Sea Salt Caramel Mocha</h3>
+          <p class="coffee-description">Premium chocolate and caramel sauce with a hint of sea salt, combined with our signature espresso blend.</p>
+          <div class="coffee-price">$6.25</div>
+          <div class="size-options">
+            <span class="size-option">Regular</span>
+            <span class="size-option">Large</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
