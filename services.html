@@ -36,6 +36,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
 <link rel="manifest" href="favicon_io/site.webmanifest">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
    </head>
    <body>
       <div class="header_section header_bg">
@@ -88,7 +90,11 @@
          .services-container {
              max-width: 1400px;  /* Increased max-width to better accommodate 7 cards */
              margin: 0 auto;
-             padding: 60px 20px;
+            
+             padding-top: 60px;
+             padding-left: 20px;
+             padding-right: 20px;
+             padding-bottom: 0px;
          }
  
          .services-header {
@@ -209,56 +215,6 @@
              font-size: 1.1rem;
          }
  
-         .payment-section {
-             background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-             padding: 60px 40px;
-             border-radius: 25px;
-             text-align: center;
-             margin-top: 70px;
-             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-         }
- 
-         .payment-section h2 {
-             color: #2C3E50;
-             margin-bottom: 40px;
-             font-size: 2.2rem;
-             position: relative;
-             display: inline-block;
-         }
- 
-         .payment-section h2::after {
-             content: '';
-             position: absolute;
-             bottom: -15px;
-             left: 50%;
-             transform: translateX(-50%);
-             width: 60px;
-             height: 3px;
-             background: #E67E22;
-             border-radius: 2px;
-         }
- 
-         .payment-icons {
-             display: flex;
-             justify-content: center;
-             gap: 40px;
-             flex-wrap: wrap;
-         }
- 
-         .payment-icon {
-             background: #fff;
-             padding: 20px 40px;
-             border-radius: 15px;
-             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-             transition: all 0.3s ease;
-             cursor: pointer;
-         }
- 
-         .payment-icon:hover {
-             transform: translateY(-5px) scale(1.05);
-             box-shadow: 0 8px 20px rgba(230,126,34,0.15);
-         }
- 
          .highlight-card {
              position: relative;
              overflow: hidden;
@@ -329,7 +285,7 @@
  
              <div class="service-card">
                  <div class="service-icon">
-                     <i class="fas fa-coffee"></i>
+                     <i class="fas fa-heart"></i>
                  </div>
                  <h3>Perfect Coffee Date</h3>
                  <p>Enjoy our carefully crafted coffee in a romantic atmosphere perfect for those special moments together.</p>
@@ -347,16 +303,16 @@
                  <div class="service-icon">
                      <i class="fas fa-gamepad"></i>
                  </div>
-                 <h3>Carrom Board</h3>
-                 <p>Challenge friends to exciting carrom matches in our dedicated gaming corner. Perfect for group entertainment.</p>
+                 <h3>Esports Tournament</h3>
+                 <p>Compete in regular gaming events and tournaments with our vibrant esports community.</p>
              </div>
  
              <div class="service-card">
                  <div class="service-icon">
-                     <i class="fas fa-dice"></i>
+                     <i class="fas fa-users"></i>
                  </div>
-                 <h3>Playing Cards</h3>
-                 <p>Gather around for card games and create lasting memories with friends and family in our cozy environment.</p>
+                 <h3>Friendly Environment</h3>
+                 <p>Join our welcoming community where everyone feels at home and connections flourish.</p>
              </div>
  
              <div class="service-card">
@@ -374,18 +330,110 @@
                  <h3>Merchandise</h3>
                  <p>Take a piece of 4 to 9 Cafe home with our exclusive merchandise collection featuring t-shirts, mugs, and more.</p>
              </div>
+
+             <div class="service-card highlight-card">
+                <div class="service-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <h3>Custom Coffee</h3>
+                <p>Experience coffee tailored to your taste by our expert baristas.</p>
+            </div>
+
          </div>
- 
-         <div class="payment-section">
-             <h2>Convenient Payment Options</h2>
-             <div class="payment-icons">
-                 <div class="payment-icon">
-                     <img src="cafeimg/payment.png" alt="eSewa" />
-                 </div>
-               
-             </div>
-         </div>
+
+   
      </div>
+
+
+
+
+        <!-- Payment Section -->
+        <section class="bg-gradient-to-b from-gray-50 to-gray-100 py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-12">Easy Payment Options</h2>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- eSewa Payment -->
+                    <div class="payment-option bg-white p-6 rounded-xl shadow-lg cursor-pointer transition-all duration-300" onclick="showQR('esewa')">
+                        <div class="w-48 h-16 mb-4 bg-green-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">eSewa</span>
+                        </div>
+                        <p class="text-gray-600">Quick and secure payments</p>
+                    </div>
+    
+                    <!-- PhonePay Payment -->
+                    <div class="payment-option bg-white p-6 rounded-xl shadow-lg cursor-pointer transition-all duration-300" onclick="showQR('phonepay')">
+                        <div class="w-48 h-16 mb-4 bg-purple-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white text-2xl font-bold">PhonePay</span>
+                        </div>
+                        <p class="text-gray-600">Simple mobile payments</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+     
+            <!-- QR Code Modal -->
+        <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+            <div class="modal-content bg-white rounded-2xl max-w-sm w-full mx-4 relative">
+                <button onclick="closeQR()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="p-8">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-6" id="qrTitle">Scan QR Code</h3>
+                        <div class="bg-gray-100 p-4 rounded-xl mb-6">
+                            <img src="cafeimg/payment.png" alt="4 to 9 cafe Payment Gateway QR CODE" class="mx-auto rounded-lg shadow-md">
+                        </div>
+                        <p class="text-gray-600 mb-6" id="qrDescription">Scan this QR code with your payment app to complete the transaction</p>
+                        <button onclick="closeQR()" class="bg-gradient-to-r from-amber-600 to-amber-700 text-black px-8 py-3 rounded-lg hover:from-amber-700 hover:to-amber-800 transition-all duration-300 shadow-lg">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function showQR(type) {
+                const modal = document.getElementById('qrModal');
+                const title = document.getElementById('qrTitle');
+                const description = document.getElementById('qrDescription');
+                modal.classList.remove('hidden');
+                
+                if (type === 'esewa') {
+                    title.textContent = 'eSewa Payment QR';
+                    description.textContent = 'Scan this QR code with your eSewa app to make a secure payment';
+                } else {
+                    title.textContent = 'PhonePay QR';
+                    description.textContent = 'Scan this QR code with your PhonePay app to complete your payment';
+                }
+    
+                // Prevent body scrolling when modal is open
+                document.body.style.overflow = 'hidden';
+            }
+    
+            function closeQR() {
+                const modal = document.getElementById('qrModal');
+                modal.classList.add('hidden');
+                // Re-enable body scrolling
+                document.body.style.overflow = 'auto';
+            }
+    
+            // Close modal when clicking outside
+            document.getElementById('qrModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeQR();
+                }
+            });
+    
+            // Close modal on escape key press
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeQR();
+                }
+            });
+        </script>
+
  
      <script>
          // Enhanced scroll animation
