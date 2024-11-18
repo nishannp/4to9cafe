@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <!-- basic -->
-     <!-- Title and Meta Description -->
+      
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 <title>Gallery | 4to9 Cafe - Capturing Moments in Birendranagar</title>
 <meta name="description" content="Explore our gallery showcasing the warm ambiance, delicious coffee, and memorable moments at 4 to 9 Cafe in Birendranagar, Surkhet.">
 
-<!-- Open Graph Tags for Social Media -->
+
 <meta property="og:title" content="4to9 Cafe Gallery - Moments and Memories in Surkhet">
 <meta property="og:description" content="View photos of 4 to 9 Cafe, Birendranagar - from our decor to delightful dishes and drinks.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://4to9cafe.com.np/gallery">
 <meta property="og:image" content="https://4to9cafe.com.np/cafeimg/1.jpg">
 
-<!-- Keywords -->
+
 <meta name="keywords" content="4 to 9 Cafe gallery, cafe ambiance Surkhet, coffee shop photos Birendranagar, best cafe decor">
 
-      <!-- bootstrap css -->
+     
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
+     
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
+    
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
+     
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- font css -->
+    
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-      <!-- Scrollbar Custom CSS -->
+      
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
+    
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -441,20 +440,20 @@
             });
         }
 
-        // Initialize gallery with loading sequence
+      
         document.addEventListener('DOMContentLoaded', () => {
-            // Show skeletons first
-            createSkeletons(9); // Adjust number based on your needs
+           
+            createSkeletons(9);
 
-            // Simulate loading delay (remove in production)
+          
             setTimeout(() => {
-                // Create real gallery
+              
                 createGallery();
-                // Initialize lazy loading
+               
                 lazyLoad();
-                // Initialize lightbox
+              
                 initLightbox();
-            }, 1000); // Adjust or remove delay in production
+            }, 1000); 
         });
         </script>
 
@@ -476,8 +475,7 @@
 
 
 
-          <!-- contact section end -->
-      <!-- footer section start -->
+          
       <div class="footer_section layout_padding">
         <div class="container">
            <div class="row">
@@ -507,8 +505,7 @@
            </div>
         </div>
      </div>
-     <!-- footer section end -->
-     <!-- copyright section start -->
+    
      <div class="copyright_section">
         <div class="container">
            <div class="row">
@@ -519,21 +516,21 @@
                 </p>
               </div>
               <script>
-                // Get the current year and display it
+               
 document.getElementById("currentYear").textContent = new Date().getFullYear();
 
               </script>
            </div>
         </div>
      </div>
-     <!-- copyright section end -->
-     <!-- Javascript files-->
+   
+   
      <script src="js/jquery.min.js"></script>
      <script src="js/popper.min.js"></script>
      <script src="js/bootstrap.bundle.min.js"></script>
      <script src="js/jquery-3.0.0.min.js"></script>
      <script src="js/plugin.js"></script>
-     <!-- sidebar -->
+  
      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
      <script src="js/custom.js"></script>
   </body>
@@ -545,7 +542,7 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
 
 <style>
 
-     /* Skeleton Loading Styles */
+  
      .skeleton {
             background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
             background-size: 200% 100%;
@@ -605,7 +602,7 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
        padding: 1rem;
    }
 
-   /* Polaroid Card Style */
+   
    .polaroid-card {
        background: white;
        padding: 1rem 1rem 2rem;
@@ -618,7 +615,7 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
        cursor: pointer;
    }
 
-   /* Different animation delays for cards */
+  
    .polaroid-card:nth-child(2n) {
        animation-delay: 0.5s;
    }
@@ -661,7 +658,7 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
        font-family: 'Segoe Script', cursive;
    }
 
-   /* Pin decoration */
+
    .pin {
        width: 12px;
        height: 12px;
@@ -674,7 +671,7 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
    }
 
-   /* Wind shake animation */
+  
    @keyframes floatAnimation {
        0%, 100% {
            transform: rotate(-2deg) translateY(0);

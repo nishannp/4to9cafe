@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <!-- basic -->
-     <!-- Title and Meta Description -->
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 <title>Services | 4to9 Cafe - More Than Just Coffee in Birendranagar</title>
 <meta name="description" content="4 to 9 Cafe in Birendranagar offers more than coffee. Enjoy motor rides, board games, and a cozy ambiance perfect for socializing, relaxation, and work.">
 
-<!-- Open Graph Tags for Social Media -->
 <meta property="og:title" content="4to9 Cafe Services - Coffee, Games & Motor Rides in Surkhet">
 <meta property="og:description" content="Explore our services including coffee, snacks, board games, and more. Perfect for social gatherings and relaxation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://4to9cafe.com.np/services">
 <meta property="og:image" content="https://4to9cafe.com.np/cafeimg/dolpa.jpg">
 
-<!-- Keywords -->
+
 <meta name="keywords" content="4 to 9 Cafe services, board games Surkhet, motor rides Birendranagar, best coffee services Surkhet">
 
       <!-- bootstrap css -->
@@ -24,7 +21,7 @@
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
+      <!-- favicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <!-- font css -->
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -73,8 +70,7 @@
             </nav>
          </div>
       </div>
-      <!-- header section end -->
-      <!-- contact section start -->
+     
       <style>
          * {
              margin: 0;
@@ -88,7 +84,7 @@
          }
  
          .services-container {
-             max-width: 1400px;  /* Increased max-width to better accommodate 7 cards */
+             max-width: 1400px; 
              margin: 0 auto;
             
              padding-top: 60px;
@@ -257,7 +253,6 @@
              }
          }
  
-         /* Custom animation for cards */
          .service-card:nth-child(odd) {
              animation-delay: 0.2s;
          }
@@ -372,7 +367,7 @@
         </section>
     
      
-            <!-- QR Code Modal -->
+           
         <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
             <div class="modal-content bg-white rounded-2xl max-w-sm w-full mx-4 relative">
                 <button onclick="closeQR()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200">
@@ -408,25 +403,24 @@
                     description.textContent = 'Scan this QR code with your PhonePay app to complete your payment';
                 }
     
-                // Prevent body scrolling when modal is open
                 document.body.style.overflow = 'hidden';
             }
     
             function closeQR() {
                 const modal = document.getElementById('qrModal');
                 modal.classList.add('hidden');
-                // Re-enable body scrolling
+              
                 document.body.style.overflow = 'auto';
             }
     
-            // Close modal when clicking outside
+           
             document.getElementById('qrModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeQR();
                 }
             });
     
-            // Close modal on escape key press
+          
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeQR();
@@ -436,7 +430,7 @@
 
  
      <script>
-         // Enhanced scroll animation
+     
          const observerOptions = {
              threshold: 0.2,
              rootMargin: '0px'
@@ -455,7 +449,7 @@
              observer.observe(element);
          });
  
-         // Smooth hover effect for service icons
+       
          document.querySelectorAll('.service-card').forEach(card => {
              card.addEventListener('mouseenter', function() {
                  this.querySelector('.service-icon').style.transform = 'rotate(360deg)';
@@ -465,9 +459,9 @@
                  this.querySelector('.service-icon').style.transform = 'rotate(0deg)';
              });
          });
+       
      </script>
-      <!-- contact section end -->
-      <!-- footer section start -->
+     
       <div class="footer_section layout_padding margin_top90">
          <div class="container">
             <div class="row">
@@ -497,8 +491,7 @@
             </div>
          </div>
       </div>
-      <!-- footer section end -->
-      <!-- copyright section start -->
+    
       <div class="copyright_section">
          <div class="container">
             <div class="row">
@@ -509,15 +502,15 @@
                     </p>
                   </div>
                   <script>
-                    // Get the current year and display it
+                   
     document.getElementById("currentYear").textContent = new Date().getFullYear();
     
                   </script>
             </div>
          </div>
       </div>
-      <!-- copyright section end -->
-      <!-- Javascript files-->
+    
+   
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
